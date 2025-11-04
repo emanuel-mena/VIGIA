@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Scroll suave y soporte de glass */
+html { scroll-behavior: smooth; }
+
+:root{
+  --clr-navy:#04244D;
+  --clr-cyan:#59E3E6;
+  --clr-white:#FFFFFF;
+  --clr-crimson:#B6244F;
+  --clr-pink:#EA638C;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .fx-blobs{ filter:none; }
+}
