@@ -323,7 +323,7 @@ export default function App() {
 
             <FadeIn delay={0.12}>
               <Card title="Grafico de Anomalias" subtitle="Isolation Forest">
-                <img src="/public/data/dataImagen.jpg" alt="" />
+                <img src="public/data/dataImagen.jpg" alt="" />
               </Card>
             </FadeIn>
           </div>
