@@ -143,32 +143,33 @@ export const YAxis: React.FC<{
   );
 };
 
-/* =========================
-   Hooks
-   =========================
-export function usePrefersDark(defaultValue = false) {
-  const [isDark, setIsDark] = useState(defaultValue);
+// Utils.tsx
+export const FullBleedSection: React.FC<{
+  id?: string;
+  bg?: string;
+  className?: string;
+  innerClassName?: string;
+  children: React.ReactNode;
+}> = ({
+  id,
+  bg = "bg-black",
+  className = "",
+  innerClassName = "",
+  children,
+}) => {
+  return (
+    <section
+      id={id}
+      className={`relative ml-[calc(50%-50vw)] mr-[calc(50%-50vw)] w-screen ${bg} overflow-x-clip ${className}`}
+    >
+      <div className={`relative mx-auto max-w-7xl px-4 sm:px-6 ${innerClassName}`}>
+        {children}
+      </div>
+    </section>
+  );
+};
 
-  useEffect(() => {
-    if (typeof window === "undefined" || !window.matchMedia) return;
-    const mq = window.matchMedia("(prefers-color-scheme: dark)");
-    const apply = () => setIsDark(!!mq.matches);
-    apply();
 
-    // Modern + legacy listeners
-    mq.addEventListener?.("change", apply);
-    // @ts-ignore
-    mq.addListener?.(apply);
-
-    return () => {
-      mq.removeEventListener?.("change", apply);
-      // @ts-ignore
-      mq.removeListener?.(apply);
-    };
-  }, []);
-
-  return isDark;
-}*/
 
 /* =========================
    UI Primitives

@@ -7,7 +7,7 @@ import {
   MobileLink,
   FeatureCard,
   TechLegend,
-  Card,
+  Card, FullBleedSection,
 } from "./components/Utils";
 
 import { AreaLineChart } from "./components/AreaLineComponent";
@@ -15,7 +15,7 @@ import { GroupedBars } from "./components/GroupedBarChartComponent";
 import { ScatterTrend } from "./components/ScatterTrendLineComponent";
 import { DonutChart } from "./components/DonutChartComponent";
 import { TeamMemberCard, type TeamMember } from "./components/TeamMemberCard";
-
+import AuroraBackground from "./components/AuroraBackground";
 
 
 const teamOne: TeamMember[] = [
@@ -127,34 +127,41 @@ export default function App() {
 
       <main className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Introducción */}
-        <section id="introduccion" className="scroll-mt-24 py-16 sm:py-24">
-          <div className="mx-auto max-w-3xl text-center">
-            <Badge>Propuesta de solución</Badge>
-            <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
-              Donde la verdad no se negocia
-            </h1>
-          </div>
+<FullBleedSection id="introduccion" bg="bg-black" className="py-0">
+  <div className="relative min-h-[80vh] w-full">
+    {/* Fondo AURORA: detrás del contenido, NO z negativo */}
+    <AuroraBackground/>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            <GlassCard>
-              <h3 className="text-lg font-semibold">Dolor actual</h3>
-              <p className="mt-2 text-zinc-300">
-                Enumera 2–3 puntos clave del problema: ineficiencias, costos,
-                tiempos, riesgos o brechas de accesibilidad.
-              </p>
-            </GlassCard>
-            <GlassCard>
-              <h3 className="text-lg font-semibold">Objetivo</h3>
-              <p className="mt-2 text-zinc-300">
-                Define el resultado deseado y los indicadores de éxito (KPIs) que
-                demostrarán el impacto de la solución.
-              </p>
-            </GlassCard>
-          </div>
-        </section>
+    {/* Contenido centrado, encima del fondo */}
+    <div className="relative z-10 mx-auto flex min-h-[80vh] max-w-5xl flex-col items-center justify-center px-4 sm:px-6 text-center">
+      <Badge>Propuesta de solución</Badge>
+      <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+        Donde la verdad no se negocia
+      </h1>
+      <p className="mt-5 max-w-2xl text-zinc-200/90">
+        Transparencia, datos abiertos y visualizaciones en tiempo real para combatir la corrupción.
+      </p>
+
+      <div className="mt-10 grid w-full max-w-3xl gap-6 sm:grid-cols-2">
+        <GlassCard>
+          <h3 className="text-lg font-semibold">Dolor actual</h3>
+          <p className="mt-2 text-zinc-300">
+            Enumera 2–3 puntos clave del problema: ineficiencias, costos, tiempos, riesgos o brechas de accesibilidad.
+          </p>
+        </GlassCard>
+        <GlassCard>
+          <h3 className="text-lg font-semibold">Objetivo</h3>
+          <p className="mt-2 text-zinc-300">
+            Define el resultado deseado y los indicadores de éxito (KPIs) que demostrarán el impacto de la solución.
+          </p>
+        </GlassCard>
+      </div>
+    </div>
+  </div>
+</FullBleedSection>
 
         {/* Solución */}
-        <section id="solucion" className="scroll-mt-24 py-16 sm:py-24">
+        <FullBleedSection id="solucion" bg="bg-[#1e293b]" className="py-20 sm:py-20">
           <div className="mx-auto max-w-5xl">
             <div className="sm:flex sm:items-end sm:justify-between">
               <div>
@@ -196,12 +203,13 @@ export default function App() {
               </ol>
             </GlassCard>
           </div>
-        </section>
+        </FullBleedSection>
+
 
         {/* =========================
             NUEVA SECCIÓN: GRÁFICOS
            ========================= */}
-        <section id="graficos" className="scroll-mt-24 py-16 sm:py-24">
+        <FullBleedSection id="graficos"  className="py-20 sm:py-20">
           <div className="mx-auto max-w-6xl">
             <div className="sm:flex sm:items-end sm:justify-between">
               <div>
@@ -235,10 +243,11 @@ export default function App() {
               </Card>
             </div>
           </div>
-        </section>
+        </FullBleedSection>
+
 
         {/* Créditos */}
-        <section id="creditos" className="scroll-mt-24 py-16 sm:py-24">
+        <FullBleedSection id="creditos"  className="py-20 sm:py-20">
           <div className="mx-auto max-w-5xl text-center">
             <Badge color="cyan">Créditos & Agradecimientos</Badge>
             <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
@@ -256,7 +265,7 @@ export default function App() {
           </div>
           <div className="mt-10 flex flex-wrap justify-center items-stretch gap-y-6 gap-x-6">
             {teamTwo.map((member) => (
-                <TeamMemberCard key={member.name} member={member} />
+              <TeamMemberCard key={member.name} member={member} />
             ))}
           </div>
 
@@ -269,7 +278,7 @@ export default function App() {
               </p>
             </GlassCard>
           </div>
-        </section>
+        </FullBleedSection>
       </main>
 
       <Footer />
