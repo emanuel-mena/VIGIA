@@ -145,7 +145,7 @@ export const YAxis: React.FC<{
 
 /* =========================
    Hooks
-   ========================= */
+   =========================
 export function usePrefersDark(defaultValue = false) {
   const [isDark, setIsDark] = useState(defaultValue);
 
@@ -168,7 +168,7 @@ export function usePrefersDark(defaultValue = false) {
   }, []);
 
   return isDark;
-}
+}*/
 
 /* =========================
    UI Primitives
