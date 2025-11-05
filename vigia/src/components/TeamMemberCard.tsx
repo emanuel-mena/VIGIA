@@ -39,7 +39,7 @@ export const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => 
         </h3>
 
         {/* Título: 1–2 líneas */}
-        <p className="text-sm text-zinc-400 leading-tight line-clamp-1 min-h-[1.75rem]">
+        <p className="text-sm text-zinc-400 leading-tight line-clamp-2 min-h-[1.75rem]">
           {member.title}
         </p>
 

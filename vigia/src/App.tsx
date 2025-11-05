@@ -8,7 +8,7 @@ import {
   FeatureCard,
   TechLegend,
   usePrefersDark,
-  Card, // <-- usaremos Card para los gráficos
+  Card,
 } from "./components/Utils";
 
 // Importa los componentes de gráficos (D3 + React)
@@ -343,7 +343,7 @@ function Footer() {
   return (
     <footer className="border-t border-white/10">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-8 sm:flex-row sm:px-6">
-        <p className="text-sm text-zinc-400">© {new Date().getFullYear()} Tu Proyecto</p>
+        <p className="text-sm text-zinc-400">© {new Date().getFullYear()} Vigia</p>
         <div className="flex items-center gap-3 text-sm text-zinc-400">
           <a className="hover:text-white" href="#introduccion">Introducción</a>
           <span className="opacity-40">•</span>
@@ -359,8 +359,5 @@ function Footer() {
 }
 
 function Logo() {
-  const isDark = usePrefersDark(); // Hook reutilizable del Utils
-  const darkLogo = "/assets/logo_vigia.svg";
-  const lightLogo = "/assets/logo_vigia-light.svg"; // renombrado sin espacios
-  return <img className="h-20 w-auto p-2" src={isDark ? darkLogo : lightLogo} alt="VIGÍA" />;
+  return <img className="h-20 w-auto p-2" src='./assets/vigia_logo.svg' alt="VIGÍA" />;
 }
