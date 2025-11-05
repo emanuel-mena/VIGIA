@@ -291,13 +291,13 @@ export default function App() {
         {/* GRÁFICOS – UNA SOLA COLUMNA */}
         <FullBleedSection id="graficos" className="py-20 sm:py-20">
           <div className="mx-auto max-w-3xl space-y-6">
-            <Card title="Top 5 instituciones por inversión" subtitle="Datos de /top-inversiones (FastAPI)">
+            <Card title="Top 5 Instituciones con más licitaciones">
               <div className="pt-2">
                 <TopInversionesChart />
               </div>
             </Card>
 
-            <Card title="Top proveedores por monto" subtitle="Dona (porcentaje del total) · fuente: /proveedor-top">
+            <Card title="Top proveedores por monto">
               <div className="pt-2">
                 <ProveedorTopDonut topN={8} />
               </div>
