@@ -10,10 +10,26 @@ import {
   Card, FullBleedSection,
 } from "./components/Utils";
 
+// src/api.ts
+const API_BASE = import.meta.env.VITE_API_BASE || "/api";
+
+export type TopInversion = {
+  Institucion: string;
+  "Monto adjudicado en colones": number;
+};
+
+export async function fetchTopInversiones(): Promise<TopInversion[]> {
+  const res = await fetch(`${API_BASE}/top-inversiones`);
+  if (!res.ok) throw new Error(`API error ${res.status}`);
+  return res.json();
+}
+
+
 import { AreaLineChart } from "./components/AreaLineComponent";
 import { GroupedBars } from "./components/GroupedBarChartComponent";
 import { ScatterTrend } from "./components/ScatterTrendLineComponent";
 import { DonutChart } from "./components/DonutChartComponent";
+import TopInversionesChart from './components/TopInversionesChart';
 import { TeamMemberCard, type TeamMember } from "./components/TeamMemberCard";
 import AuroraBackground from "./components/AuroraBackground";
 
@@ -241,6 +257,12 @@ export default function App() {
               <Card title="Participación de plataforma" subtitle="Donut + leyenda">
                 <DonutChart data={donutData} />
               </Card>
+
+              <Card title="Top 5 instituciones por inversión" subtitle="Datos de /top-inversiones (FastAPI)">
+  <div className="pt-2">
+    <TopInversionesChart />
+  </div>
+</Card>
             </div>
           </div>
         </FullBleedSection>
