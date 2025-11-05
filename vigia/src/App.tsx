@@ -1,5 +1,15 @@
-import { useState } from "react";
+import * as d3 from "d3";
+
+// Si ya tienes esto en otro archivo, puedes usarlo igual:
+const API_BASE = import.meta.env.VITE_API_BASE || "/api";
+
+type TopInversion = { Institucion: string; "Monto adjudicado en colones": number };
+type TopInstitucionCount = { Institucion: string; Cantidad: number };
+type EgresoRow = { month: number; series: string; value: number }; // /egresos-linea-totales
+
+import {useEffect, useMemo, useRef,  useState } from "react";
 import {
+  useMeasure,
   GlassCard,
   Badge,
   CTA,
@@ -16,6 +26,7 @@ import AuroraBackground from "./components/AuroraBackground";
 
 // 🔹 Nuevo: panel que hace fetch a /egresos-series y /egresos-linea-data
 import MultiPercentPanel from "./components/MultiPercentPanel";
+import { IframeCard } from "./components/IFrameCard";
 
 function Logo() {
   return <img className="h-20 w-auto p-2" src="./assets/vigia_logo.svg" alt="VIGÍA" />;
@@ -171,6 +182,14 @@ export default function App() {
                 <MultiPercentPanel />
               </Card>
             </div>
+
+            <div>
+      <IframeCard
+        title="Mapa de Licitaciones CR"
+        src="/data/mapa_cantones_CR.html"
+        className="mt-6"
+      />
+    </div>
           </div>
         </FullBleedSection>
 
@@ -278,4 +297,245 @@ function Footer() {
       </div>
     </footer>
   );
+}
+
+function ChartTopInversiones() {
+  const { ref, rect } = useMeasure<HTMLDivElement>();
+  const svgRef = useRef<SVGSVGElement | null>(null);
+  const [data, setData] = useState<TopInversion[] | null>(null);
+  const [err, setErr] = useState<string | null>(null);
+
+  useEffect(() => {
+    let alive = true;
+    fetch(`${API_BASE}/top-inversiones`)
+      .then(r => r.ok ? r.json() : Promise.reject(r.statusText))
+      .then((rows: TopInversion[]) => alive && setData(rows))
+      .catch(e => alive && setErr(String(e)));
+    return () => { alive = false; };
+  }, []);
+
+  useEffect(() => {
+    if (!svgRef.current || !data) return;
+    const width = Math.max(360, rect.width || 360);
+    const height = 280;
+    const margin = { top: 20, right: 16, bottom: 42, left: 80 };
+    const innerW = width - margin.left - margin.right;
+    const innerH = height - margin.top - margin.bottom;
+
+    const svg = d3.select(svgRef.current)
+      .attr("width", width)
+      .attr("height", height);
+    svg.selectAll("*").remove();
+
+    const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
+
+    const x = d3.scaleBand()
+      .domain(data.map(d => d.Institucion))
+      .range([0, innerW]).padding(0.2);
+
+    const y = d3.scaleLinear()
+      .domain([0, d3.max(data, d => d["Monto adjudicado en colones"]) || 0]).nice()
+      .range([innerH, 0]);
+
+    const fmtMoney = d3.format("~s");
+
+    g.append("g")
+      .attr("transform", `translate(0,${innerH})`)
+      .call(d3.axisBottom(x))
+      .selectAll("text")
+      .attr("text-anchor", "end")
+      .attr("transform", "rotate(-20)")
+      .attr("dx", "-0.5em")
+      .attr("dy", "0.25em")
+      .style("font-size", "11px");
+
+    g.append("g")
+      .call(d3.axisLeft(y).ticks(5).tickFormat(d => `${fmtMoney(Number(d))}` as any))
+      .selectAll("text").style("font-size", "11px");
+
+    g.selectAll("rect.bar")
+      .data(data)
+      .join("rect")
+      .attr("class", "bar")
+      .attr("x", d => x(d.Institucion)!)
+      .attr("y", d => y(d["Monto adjudicado en colones"]))
+      .attr("width", x.bandwidth())
+      .attr("height", d => innerH - y(d["Monto adjudicado en colones"]))
+      .attr("fill", "url(#grad1)");
+
+    // simple grad
+    const defs = svg.append("defs");
+    const grad = defs.append("linearGradient").attr("id", "grad1").attr("x1", "0").attr("x2", "0").attr("y1", "0").attr("y2", "1");
+    grad.append("stop").attr("offset", "0%").attr("stop-color", "#59E3E6");
+    grad.append("stop").attr("offset", "100%").attr("stop-color", "#EA638C");
+
+    // grid
+    g.append("g")
+      .attr("class", "grid")
+      .call(d3.axisLeft(y).ticks(5).tickSize(-innerW).tickFormat(() => ""))
+      .selectAll("line").attr("stroke", "rgba(255,255,255,.08)");
+
+  }, [data, rect.width]);
+
+  if (err) return <div className="text-red-400 text-sm">Error: {err}</div>;
+  if (!data) return <div className="text-zinc-400 text-sm">Cargando…</div>;
+  return <div ref={ref}><svg ref={svgRef} /></div>;
+}
+
+function ChartTopInstitucionesCount() {
+  const { ref, rect } = useMeasure<HTMLDivElement>();
+  const svgRef = useRef<SVGSVGElement | null>(null);
+  const [data, setData] = useState<TopInstitucionCount[] | null>(null);
+  const [err, setErr] = useState<string | null>(null);
+
+  useEffect(() => {
+    let alive = true;
+    fetch(`${API_BASE}/top-instituciones`)
+      .then(r => r.ok ? r.json() : Promise.reject(r.statusText))
+      .then((rows: TopInstitucionCount[]) => alive && setData(rows))
+      .catch(e => alive && setErr(String(e)));
+    return () => { alive = false; };
+  }, []);
+
+  useEffect(() => {
+    if (!svgRef.current || !data) return;
+    const width = Math.max(360, rect.width || 360);
+    const height = 180;
+    const margin = { top: 10, right: 16, bottom: 24, left: 140 };
+    const innerW = width - margin.left - margin.right;
+    const innerH = height - margin.top - margin.bottom;
+
+    const svg = d3.select(svgRef.current).attr("width", width).attr("height", height);
+    svg.selectAll("*").remove();
+    const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
+
+    const y = d3.scaleBand()
+      .domain(data.map(d => d.Institucion))
+      .range([0, innerH]).padding(0.25);
+
+    const x = d3.scaleLinear()
+      .domain([0, d3.max(data, d => d.Cantidad) || 0]).nice()
+      .range([0, innerW]);
+
+    g.append("g").call(d3.axisLeft(y)).selectAll("text").style("font-size", "11px");
+    g.append("g").attr("transform", `translate(0,${innerH})`).call(d3.axisBottom(x).ticks(5)).selectAll("text").style("font-size", "11px");
+
+    g.selectAll("rect")
+      .data(data)
+      .join("rect")
+      .attr("y", d => y(d.Institucion)!)
+      .attr("x", 0)
+      .attr("height", y.bandwidth())
+      .attr("width", d => x(d.Cantidad))
+      .attr("fill", "#59E3E6");
+  }, [data, rect.width]);
+
+  if (err) return <div className="text-red-400 text-sm">Error: {err}</div>;
+  if (!data) return <div className="text-zinc-400 text-sm">Cargando…</div>;
+  return <div ref={ref}><svg ref={svgRef} /></div>;
+}
+
+function ChartEgresosLineasTopN({ topN = 8 }: { topN?: number }) {
+  const { ref, rect } = useMeasure<HTMLDivElement>();
+  const svgRef = useRef<SVGSVGElement | null>(null);
+  const [rows, setRows] = useState<EgresoRow[] | null>(null);
+  const [err, setErr] = useState<string | null>(null);
+
+  useEffect(() => {
+    let alive = true;
+    fetch(`${API_BASE}/egresos-linea-totales`)
+      .then(r => r.ok ? r.json() : Promise.reject(r.statusText))
+      .then((data: EgresoRow[]) => alive && setRows(data))
+      .catch(e => alive && setErr(String(e)));
+    return () => { alive = false; };
+  }, []);
+
+  useEffect(() => {
+    if (!svgRef.current || !rows) return;
+
+    // Agrupa por serie y filtra Top N por suma total
+    const bySeries = d3.rollups(
+      rows,
+      v => ({
+        total: d3.sum(v, d => d.value),
+        points: d3.rollups(v, vv => vv[0].value, d => d.month) // month->value
+          .map(([m, val]) => ({ m: Number(m), v: Number(val) }))
+          .sort((a,b)=>a.m-b.m),
+      }),
+      d => d.series
+    );
+
+    const top = bySeries
+      .sort((a,b) => d3.descending(a[1].total, b[1].total))
+      .slice(0, topN);
+
+    // dominios
+    const months = Array.from(new Set(rows.map(r => r.month))).sort((a,b)=>a-b);
+    const yMax = d3.max(top.flatMap(([_, s]) => s.points.map(p => p.v))) || 0;
+
+    const width = Math.max(360, rect.width || 360);
+    const height = 300;
+    const margin = { top: 18, right: 16, bottom: 32, left: 80 };
+    const innerW = width - margin.left - margin.right;
+    const innerH = height - margin.top - margin.bottom;
+
+    const svg = d3.select(svgRef.current).attr("width", width).attr("height", height);
+    svg.selectAll("*").remove();
+    const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
+
+    const x = d3.scaleLinear()
+      .domain([months[0], months[months.length-1]])
+      .range([0, innerW]);
+
+    const y = d3.scaleLinear().domain([0, yMax]).nice().range([innerH, 0]);
+
+    const color = d3.scaleOrdinal<string, string>()
+      .domain(top.map(([name]) => name))
+      .range(d3.schemeTableau10);
+
+    const line = d3.line<{m:number; v:number}>()
+      .x(d => x(d.m))
+      .y(d => y(d.v))
+      .curve(d3.curveMonotoneX);
+
+    const fmtMoney = d3.format("~s");
+
+    g.append("g").attr("transform", `translate(0,${innerH})`)
+      .call(d3.axisBottom(x).ticks(Math.min(10, months.length)).tickFormat(d=>String(d) as any))
+      .selectAll("text").style("font-size", "11px");
+
+    g.append("g")
+      .call(d3.axisLeft(y).ticks(5).tickFormat(d=>fmtMoney(Number(d)) as any))
+      .selectAll("text").style("font-size", "11px");
+
+    // grid
+    g.append("g")
+      .call(d3.axisLeft(y).ticks(5).tickSize(-innerW).tickFormat(()=>"" as any))
+      .selectAll("line").attr("stroke", "rgba(255,255,255,.08)");
+
+    // líneas
+    g.selectAll("path.line")
+      .data(top)
+      .join("path")
+      .attr("class","line")
+      .attr("fill","none")
+      .attr("stroke", ([name]) => color(name))
+      .attr("stroke-width", 2)
+      .attr("d", ([, s]) => line(s.points)!);
+
+    // leyenda simple
+    const legend = svg.append("g").attr("transform", `translate(${margin.left},${height-6})`);
+    const items = legend.selectAll("g.litem").data(top).join("g")
+      .attr("class","litem")
+      .attr("transform", (_,i)=>`translate(${i*180},-8)`);
+
+    items.append("rect").attr("width", 10).attr("height", 10).attr("rx",2)
+      .attr("fill", ([name]) => color(name));
+    items.append("text").attr("x", 14).attr("y", 9).text(([name])=>name)
+      .style("font-size","11px").style("fill","#ddd");
+  }, [rows, rect.width]);
+
+  if (err) return <div className="text-red-400 text-sm">Error: {err}</div>;
+  if (!rows) return <div className="text-zinc-400 text-sm">Cargando…</div>;
+  return <div ref={ref}><svg ref={svgRef} /></div>;
 }
