@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* Scroll suave y soporte de glass */
 html { scroll-behavior: smooth; }
 

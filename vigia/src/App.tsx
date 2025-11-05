@@ -17,6 +17,50 @@ import { GroupedBars } from "./components/GroupedBarChartComponent";
 import { ScatterTrend } from "./components/ScatterTrendLineComponent";
 import { DonutChart } from "./components/DonutChartComponent";
 
+/* =========================
+   Créditos
+   ========================= */
+import { TeamMemberCard, type TeamMember } from "./components/TeamMemberCard";
+
+/* ...dentro del componente App() antes del return */
+const team: TeamMember[] = [
+  {
+    name: "Allison Romero Jimenez",
+    title: "Cybersecurity Analyst",
+    role: "Data Analist",
+    image: "/team/Allison_pfp.jpg",
+    linkedin: "https://www.linkedin.com/in/allison-romero-jimenez-849aa3239/?originalSubdomain=cr",
+  },
+  {
+    name: "Emanuel Mena Araya",
+    title: "Estudiante de Ingeniería de Software",
+    role: "Desarrollador de Frontend",
+    image: "/team/Emanuel_pfp.png",
+    linkedin: "https://www.linkedin.com/in/emanuel-mena-araya/",
+  },
+  {
+    name: "Gabriela Urbina Hernández ",
+    title: "Estudiante de Ingeniería de Software",
+    role: "Coordinadora",
+    image: "/team/Gabriela_pfp.png",
+    linkedin: "https://www.linkedin.com/in/gabriela-urbina-hern%C3%A1ndez-41a056200/",
+  },
+  {
+    name: "María Jesús Rodríguez",
+    title: "Estudiante TICs",
+    role: "Analisis de Datos",
+    image: "/team/Maria_pfp.png",
+    linkedin: "https://www.linkedin.com/in/mar%C3%ADa-jes%C3%BAs-rodr%C3%ADguez-molina-/",
+  },
+  {
+    name: "Melina Soto Badilla",
+    title: "Tecnica en Redes",
+    role: "Integración de APIs",
+    image: "/team/Melina_pfp.jpg",
+    linkedin: "https://www.linkedin.com/in/melina-soto-09088a303/",
+  },
+];
+
 // Paleta (sugerido en index.css):
 // :root{ --clr-navy:#04244D; --clr-cyan:#59E3E6; --clr-white:#FFFFFF; --clr-crimson:#B6244F; --clr-pink:#EA638C; }
 // html { scroll-behavior: smooth; }
@@ -203,26 +247,29 @@ export default function App() {
 
         {/* Créditos */}
         <section id="creditos" className="scroll-mt-24 py-16 sm:py-24">
-          <div className="mx-auto max-w-3xl">
+          <div className="mx-auto max-w-5xl text-center">
             <Badge color="cyan">Créditos & Agradecimientos</Badge>
             <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
               Equipo, mentores y recursos
             </h2>
-            <p className="mt-3 text-zinc-300">
-              Agradece a las personas, organizaciones y herramientas que hicieron
-              posible el proyecto. Añade enlaces a repositorios o datasets si aplica.
+            <p className="mt-3 text-zinc-300 max-w-2xl mx-auto">
+              Agradecemos al equipo de desarrollo, mentores y colaboradores que hicieron posible este proyecto.
             </p>
+          </div>
 
-            <div className="mt-6 gap-6">
-              <GlassCard>
-                <h3 className="text-lg font-semibold">Equipo</h3>
-                <ul className="mt-2 list-disc space-y-1 pl-6 text-zinc-300">
-                  <li>Nombre 1 — Rol</li>
-                  <li>Nombre 2 — Rol</li>
-                  <li>Nombre 3 — Rol</li>
-                </ul>
-              </GlassCard>
-            </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 justify-items-center items-stretch">
+            {team.map((member) => (
+              <TeamMemberCard key={member.name} member={member} />
+            ))}
+          </div>
+
+          <div className="mt-12 mx-auto max-w-3xl">
+            <GlassCard>
+              <h3 className="text-lg font-semibold">Agradecimientos</h3>
+              <p className="mt-2 text-zinc-300">
+                Agradecimientos especiales a la Universidad CENFOTEC por haber apoyado al equipo con información, contactos y transporte para el evento.
+              </p>
+            </GlassCard>
           </div>
         </section>
       </main>

@@ -302,10 +302,10 @@ export function TechLegend() {
       <p className="font-semibold">Colores del sistema</p>
       <div className="mt-2 grid grid-cols-5 items-end gap-2">
         <Swatch hex="#000000" label="Fondo" />
-        <Swatch hex="var(--clr-navy, #04244D)" label="Navy" />
-        <Swatch hex="var(--clr-cyan, #59E3E6)" label="Cyan" />
-        <Swatch hex="var(--clr-white, #FFFFFF)" label="Texto" />
-        <Swatch hex="var(--clr-pink, #EA638C)" label="Pink" />
+        <Swatch hex="#04244D)" label="Navy" />
+        <Swatch hex="#59E3E6)" label="Cyan" />
+        <Swatch hex="#FFFFFF)" label="Texto" />
+        <Swatch hex="#EA638C)" label="Pink" />
       </div>
     </div>
   );
