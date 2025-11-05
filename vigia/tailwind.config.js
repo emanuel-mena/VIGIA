@@ -3,10 +3,3 @@ export default {
   theme: { extend: {} },
   plugins: [],
 }
-
-module.exports = {
-  content: ["./index.html", "./src/**/*.{ts,tsx}"],
-  theme: { extend: {} },
-  plugins: [require("@tailwindcss/line-clamp")],
-};
-

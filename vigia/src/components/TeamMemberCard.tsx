@@ -20,10 +20,10 @@ export const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => 
   return (
     <GlassCard
       className="
-        flex h-full w-64 sm:w-72 flex-col items-center text-center p-6
-        transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-cyan-500/10
-      "
+    flex h-full w-full max-w-[16rem] flex-col items-center text-center p-5
+    transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-cyan-500/10"
     >
+
       {/* Bloque superior fijo y centrado */}
       <div className="flex w-full flex-col items-center">
         <img

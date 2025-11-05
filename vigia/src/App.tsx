@@ -257,7 +257,7 @@ export default function App() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 justify-items-center items-stretch">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 justify-items-center items-stretch mx-auto max-w-3xl">
             {team.map((member) => (
               <TeamMemberCard key={member.name} member={member} />
             ))}
