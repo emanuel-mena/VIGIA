@@ -208,6 +208,7 @@ function ChartEgresosLineasTopN({ topN = 8 }: { topN?: number }) {
   );
 }
 
+
 /* ================
    App
    ================ */
@@ -261,7 +262,7 @@ export default function App() {
           </div>
         </FullBleedSection>
 
-        {/* Solución */}
+        {/* Solución 
         <FullBleedSection id="solucion" bg="bg-[#1e293b]" className="py-20 sm:py-20">
           <div className="mx-auto max-w-5xl">
             <div className="sm:flex sm:items-end sm:justify-between">
@@ -285,7 +286,7 @@ export default function App() {
               </GlassCard>
             </div>
           </div>
-        </FullBleedSection>
+        </FullBleedSection>*/}
 
         {/* GRÁFICOS – UNA SOLA COLUMNA */}
         <FullBleedSection id="graficos" className="py-20 sm:py-20">
