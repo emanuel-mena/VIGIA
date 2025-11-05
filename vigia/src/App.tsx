@@ -7,7 +7,6 @@ import {
   MobileLink,
   FeatureCard,
   TechLegend,
-  usePrefersDark,
   Card,
 } from "./components/Utils";
 
