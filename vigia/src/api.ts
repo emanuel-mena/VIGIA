@@ -9,5 +9,6 @@ export type TopInversion = {
 export async function fetchTopInversiones(): Promise<TopInversion[]> {
   const res = await fetch(`${API_BASE}/top-inversiones`);
   if (!res.ok) throw new Error(`API error ${res.status}`);
+  console.log(res);
   return res.json();
 }
