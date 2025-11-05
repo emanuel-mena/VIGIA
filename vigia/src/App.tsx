@@ -10,23 +10,19 @@ import {
   Card,
 } from "./components/Utils";
 
-// Importa los componentes de gráficos (D3 + React)
 import { AreaLineChart } from "./components/AreaLineComponent";
 import { GroupedBars } from "./components/GroupedBarChartComponent";
 import { ScatterTrend } from "./components/ScatterTrendLineComponent";
 import { DonutChart } from "./components/DonutChartComponent";
-
-/* =========================
-   Créditos
-   ========================= */
 import { TeamMemberCard, type TeamMember } from "./components/TeamMemberCard";
 
-/* ...dentro del componente App() antes del return */
-const team: TeamMember[] = [
+
+
+const teamOne: TeamMember[] = [
   {
     name: "Allison Romero Jimenez",
     title: "Cybersecurity Analyst",
-    role: "Data Analist",
+    role: "Lead Data Analyst",
     image: "/team/Allison_pfp.webp",
     linkedin: "https://www.linkedin.com/in/allison-romero-jimenez-849aa3239/?originalSubdomain=cr",
   },
@@ -44,21 +40,23 @@ const team: TeamMember[] = [
     image: "/team/Gabriela_pfp.webp",
     linkedin: "https://www.linkedin.com/in/gabriela-urbina-hern%C3%A1ndez-41a056200/",
   },
-  {
-    name: "María Jesús Rodríguez",
-    title: "Estudiante TICs",
-    role: "Analisis de Datos",
-    image: "/team/Maria_pfp.webp",
-    linkedin: "https://www.linkedin.com/in/mar%C3%ADa-jes%C3%BAs-rodr%C3%ADguez-molina-/",
-  },
-  {
-    name: "Melina Soto Badilla",
-    title: "Tecnica en Redes",
-    role: "Integración de APIs",
-    image: "/team/Melina_pfp.webp",
-    linkedin: "https://www.linkedin.com/in/melina-soto-09088a303/",
-  },
+
 ];
+
+const teamTwo: TeamMember[] = [{
+  name: "María Jesús Rodríguez",
+  title: "Estudiante TICs",
+  role: "Analisis de Datos",
+  image: "/team/Maria_pfp.webp",
+  linkedin: "https://www.linkedin.com/in/mar%C3%ADa-jes%C3%BAs-rodr%C3%ADguez-molina-/",
+},
+{
+  name: "Melina Soto Badilla",
+  title: "Tecnica en Redes",
+  role: "Integración de APIs",
+  image: "/team/Melina_pfp.webp",
+  linkedin: "https://www.linkedin.com/in/melina-soto-09088a303/",
+},]
 
 // Paleta (sugerido en index.css):
 // :root{ --clr-navy:#04244D; --clr-cyan:#59E3E6; --clr-white:#FFFFFF; --clr-crimson:#B6244F; --clr-pink:#EA638C; }
@@ -133,13 +131,8 @@ export default function App() {
           <div className="mx-auto max-w-3xl text-center">
             <Badge>Propuesta de solución</Badge>
             <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
-              Solución tecnológica moderna a un problema real
+              Donde la verdad no se negocia
             </h1>
-            <p className="mt-5 text-zinc-300">
-              Presenta brevemente el problema y el contexto. Explica por qué importa,
-              a quién afecta y qué objetivo persigue esta propuesta. Mantén un lenguaje
-              accesible y directo. (Sustituye este texto con tu caso.)
-            </p>
           </div>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
@@ -256,11 +249,17 @@ export default function App() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 justify-items-center items-stretch mx-auto max-w-3xl">
-            {team.map((member) => (
+          <div className="mt-10 grid gap-6 sm:grid-cols-1 lg:grid-cols-3 justify-items-center items-stretch mx-auto max-w-3xl">
+            {teamOne.map((member) => (
               <TeamMemberCard key={member.name} member={member} />
             ))}
           </div>
+          <div className="mt-10 flex flex-wrap justify-center items-stretch gap-y-6 gap-x-6">
+            {teamTwo.map((member) => (
+                <TeamMemberCard key={member.name} member={member} />
+            ))}
+          </div>
+
 
           <div className="mt-12 mx-auto max-w-3xl">
             <GlassCard>
