@@ -320,6 +320,12 @@ export default function App() {
             <FadeIn delay={0.12}>
               <IframeCard title="Mapa de Licitaciones CR" src="/data/mapa_cantones_CR.html" />
             </FadeIn>
+
+            <FadeIn delay={0.12}>
+              <Card title="Grafico de Anomalias" subtitle="Isolation Forest">
+                <img src="/public/data/dataImagen.jpg" alt="" />
+              </Card>
+            </FadeIn>
           </div>
         </FullBleedSection>
 
