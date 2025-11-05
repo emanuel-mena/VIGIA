@@ -32,7 +32,7 @@ export default function App() {
           <div className="mx-auto max-w-3xl text-center">
             <Badge>Propuesta de solución</Badge>
             <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
-              Solución tecnológica moderna a un problema real
+              BLAH BLAH BLAH
             </h1>
             <p className="mt-5 text-zinc-300">
               Presenta brevemente el problema y el contexto. Explica por qué importa,
@@ -116,20 +116,13 @@ export default function App() {
               posible el proyecto. Añade enlaces a repositorios o datasets si aplica.
             </p>
 
-            <div className="mt-6 grid gap-6 sm:grid-cols-2">
+            <div className="mt-6 grid gap-6">
               <GlassCard>
                 <h3 className="text-lg font-semibold">Equipo</h3>
                 <ul className="mt-2 list-disc space-y-1 pl-6 text-zinc-300">
                   <li>Nombre 1 — Rol</li>
                   <li>Nombre 2 — Rol</li>
                   <li>Nombre 3 — Rol</li>
-                </ul>
-              </GlassCard>
-              <GlassCard>
-                <h3 className="text-lg font-semibold">Mentores/Apoyo</h3>
-                <ul className="mt-2 list-disc space-y-1 pl-6 text-zinc-300">
-                  <li>Entidad/Persona — Apoyo específico</li>
-                  <li>Herramienta/Librería — Uso en el proyecto</li>
                 </ul>
               </GlassCard>
             </div>
