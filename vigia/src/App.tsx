@@ -239,7 +239,7 @@ export default function App() {
               <div className="mt-10 grid w-full max-w-3xl gap-6 sm:grid-cols-2">
                 <GlassCard className="glass-card">
                   <div className="glasscard-text">
-                    <h3 className="text-lg font-semibold">Dolor actual</h3>
+                    <h3 className="text-lg font-semibold">Dificultades</h3>
                     <ul className="mt-2 text-zinc-300 list-disc list-inside space-y-1">
                       <li>Los datos abiertos del gobierno son poco accesibles y difíciles de interpretar.</li>
                       <li>No existen herramientas claras para detectar posibles irregularidades en las contrataciones públicas.</li>
