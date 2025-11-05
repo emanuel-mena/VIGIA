@@ -1,3 +1,5 @@
+import { percentRows } from "./data/percentRows";
+
 import { useMemo, useState } from "react";
 import {
   GlassCard,
@@ -17,6 +19,9 @@ export type TopInversion = {
   Institucion: string;
   "Monto adjudicado en colones": number;
 };
+
+import { MultiPercentLineChart } from "./components/MultiPercentLineChart";
+
 
 export async function fetchTopInversiones(): Promise<TopInversion[]> {
   const res = await fetch(`${API_BASE}/top-inversiones`);
@@ -265,6 +270,11 @@ export default function App() {
                   <TopInversionesChart />
                 </div>
               </Card>
+
+              <Card title="Distribución porcentual mensual" subtitle="Multi-línea por institución (0–100%)">
+                <MultiPercentLineChart data={percentRows} />
+              </Card>
+
             </div>
           </div>
         </FullBleedSection>
