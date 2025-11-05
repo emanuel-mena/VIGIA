@@ -25,10 +25,10 @@ export async function fetchTopInversiones(): Promise<TopInversion[]> {
 }
 
 
-import { AreaLineChart } from "./components/AreaLineComponent";
+/**import { AreaLineChart } from "./components/AreaLineComponent";
 import { GroupedBars } from "./components/GroupedBarChartComponent";
 import { ScatterTrend } from "./components/ScatterTrendLineComponent";
-import { DonutChart } from "./components/DonutChartComponent";
+import { DonutChart } from "./components/DonutChartComponent";*/
 import TopInversionesChart from './components/TopInversionesChart';
 import { TeamMemberCard, type TeamMember } from "./components/TeamMemberCard";
 import AuroraBackground from "./components/AuroraBackground";
