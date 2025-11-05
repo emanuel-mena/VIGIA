@@ -246,7 +246,7 @@ export default function App() {
               </div>
             </div>
 
-            <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {/*<div className="mt-8 grid gap-6 md:grid-cols-2">
               <Card title="Revenue over time" subtitle="Area + Line con tooltip">
                 <AreaLineChart data={seriesA} />
               </Card>
@@ -262,7 +262,7 @@ export default function App() {
               <Card title="Participación de plataforma" subtitle="Donut + leyenda">
                 <DonutChart data={donutData} />
               </Card>
-            </div>
+            </div>*/}
 
             <div>
               <Card title="Top 5 instituciones por inversión" subtitle="Datos de /top-inversiones (FastAPI)">
@@ -271,7 +271,7 @@ export default function App() {
                 </div>
               </Card>
 
-              <Card title="Distribución porcentual mensual" subtitle="Multi-línea por institución (0–100%)">
+              <Card title="Distribución porcentual mensual" subtitle="Multi-línea por institución (0-100%)">
                 <MultiPercentLineChart data={percentRows} />
               </Card>
 
