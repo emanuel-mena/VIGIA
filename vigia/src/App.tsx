@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
   GlassCard,
   Badge,
@@ -8,13 +8,71 @@ import {
   FeatureCard,
   TechLegend,
   usePrefersDark,
+  Card, // <-- usaremos Card para los gráficos
 } from "./components/Utils";
+
+// Importa los componentes de gráficos (D3 + React)
+import { AreaLineChart } from "./components/AreaLineComponent";
+import { GroupedBars } from "./components/GroupedBarChartComponent";
+import { ScatterTrend } from "./components/ScatterTrendLineComponent";
+import { DonutChart } from "./components/DonutChartComponent";
 
 // Paleta (sugerido en index.css):
 // :root{ --clr-navy:#04244D; --clr-cyan:#59E3E6; --clr-white:#FFFFFF; --clr-crimson:#B6244F; --clr-pink:#EA638C; }
 // html { scroll-behavior: smooth; }
 
 export default function App() {
+  /** =========================
+   *  Datos de ejemplo (mock)
+   *  ========================= */
+  // Serie temporal (12 meses)
+  const seriesA = useMemo(
+    () =>
+      Array.from({ length: 12 }, (_, i) => ({
+        date: new Date(2025, i, 1),
+        value: Math.round(40 + 20 * Math.sin(i / 1.8) + Math.random() * 8),
+      })),
+    []
+  );
+
+  // Barras agrupadas (dos grupos por categoría)
+  const categories = useMemo(
+    () => [
+      { label: "Q1", group: "2024", value: 120 },
+      { label: "Q1", group: "2025", value: 148 },
+      { label: "Q2", group: "2024", value: 160 },
+      { label: "Q2", group: "2025", value: 175 },
+      { label: "Q3", group: "2024", value: 142 },
+      { label: "Q3", group: "2025", value: 168 },
+      { label: "Q4", group: "2024", value: 180 },
+      { label: "Q4", group: "2025", value: 196 },
+    ],
+    []
+  );
+
+  // Dispersión + recta de tendencia
+  const scatterPoints = useMemo(
+    () =>
+      Array.from({ length: 40 }, () => {
+        const x = Math.random() * 100;
+        // relación positiva con ruido
+        const y = x * 0.8 + 10 + (Math.random() - 0.5) * 20;
+        return { x, y };
+      }),
+    []
+  );
+
+  // Donut
+  const donutData = useMemo(
+    () => [
+      { name: "Android", value: 58 },
+      { name: "iOS", value: 34 },
+      { name: "Web", value: 20 },
+      { name: "Otros", value: 8 },
+    ],
+    []
+  );
+
   return (
     <div className="min-h-screen bg-black text-white selection:bg-cyan-300/40 selection:text-white">
       {/* Fondo con degradados dinámicos (blurred blobs) */}
@@ -32,7 +90,7 @@ export default function App() {
           <div className="mx-auto max-w-3xl text-center">
             <Badge>Propuesta de solución</Badge>
             <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
-              BLAH BLAH BLAH
+              Solución tecnológica moderna a un problema real
             </h1>
             <p className="mt-5 text-zinc-300">
               Presenta brevemente el problema y el contexto. Explica por qué importa,
@@ -104,6 +162,45 @@ export default function App() {
           </div>
         </section>
 
+        {/* =========================
+            NUEVA SECCIÓN: GRÁFICOS
+           ========================= */}
+        <section id="graficos" className="scroll-mt-24 py-16 sm:py-24">
+          <div className="mx-auto max-w-6xl">
+            <div className="sm:flex sm:items-end sm:justify-between">
+              <div>
+                <Badge color="cyan">Gráficos</Badge>
+                <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                  Visualizaciones clave (D3 + React)
+                </h2>
+                <p className="mt-3 max-w-2xl text-zinc-300">
+                  Un set de componentes reutilizables para mostrar series temporales,
+                  comparativas por categoría, correlaciones con tendencia y reparto por
+                  segmentos.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              <Card title="Revenue over time" subtitle="Area + Line con tooltip">
+                <AreaLineChart data={seriesA} />
+              </Card>
+
+              <Card title="Performance por categoría" subtitle="Barras agrupadas con leyenda">
+                <GroupedBars data={categories} />
+              </Card>
+
+              <Card title="Correlación" subtitle="Dispersión con recta de tendencia">
+                <ScatterTrend data={scatterPoints} />
+              </Card>
+
+              <Card title="Participación de plataforma" subtitle="Donut + leyenda">
+                <DonutChart data={donutData} />
+              </Card>
+            </div>
+          </div>
+        </section>
+
         {/* Créditos */}
         <section id="creditos" className="scroll-mt-24 py-16 sm:py-24">
           <div className="mx-auto max-w-3xl">
@@ -116,7 +213,7 @@ export default function App() {
               posible el proyecto. Añade enlaces a repositorios o datasets si aplica.
             </p>
 
-            <div className="mt-6 grid gap-6">
+            <div className="mt-6 gap-6">
               <GlassCard>
                 <h3 className="text-lg font-semibold">Equipo</h3>
                 <ul className="mt-2 list-disc space-y-1 pl-6 text-zinc-300">
@@ -150,6 +247,7 @@ function Header() {
         <nav className="hidden items-center gap-1 sm:flex">
           <NavLink href="#introduccion">Introducción</NavLink>
           <NavLink href="#solucion">Solución</NavLink>
+          <NavLink href="#graficos">Gráficos</NavLink>{/* nuevo */}
           <NavLink href="#creditos">Créditos</NavLink>
           <CTA href="#solucion">Ver demo</CTA>
         </nav>
@@ -177,6 +275,9 @@ function Header() {
               <MobileLink href="#solucion" onClick={() => setOpen(false)}>
                 Solución
               </MobileLink>
+              <MobileLink href="#graficos" onClick={() => setOpen(false)}>
+                Gráficos
+              </MobileLink>
               <MobileLink href="#creditos" onClick={() => setOpen(false)}>
                 Créditos
               </MobileLink>
@@ -200,6 +301,8 @@ function Footer() {
           <a className="hover:text-white" href="#introduccion">Introducción</a>
           <span className="opacity-40">•</span>
           <a className="hover:text-white" href="#solucion">Solución</a>
+          <span className="opacity-40">•</span>
+          <a className="hover:text-white" href="#graficos">Gráficos</a>
           <span className="opacity-40">•</span>
           <a className="hover:text-white" href="#creditos">Créditos</a>
         </div>

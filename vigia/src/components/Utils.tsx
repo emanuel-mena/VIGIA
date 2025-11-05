@@ -1,4 +1,87 @@
-import React, { useEffect, useState } from "react";
+import * as d3 from "d3";
+import React, { useRef, useEffect, useState } from "react";
+/* =============================
+   Axis components (React render)
+   ============================= */
+
+type ContinuousScale =
+  | d3.ScaleLinear<number, number>
+  | d3.ScaleTime<number, number>
+  | d3.ScaleLogarithmic<number, number>;
+
+export function useMeasure<T extends HTMLElement>() {
+  const ref = useRef<T | null>(null);
+  const [rect, setRect] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    if (!ref.current) return;
+    const ro = new ResizeObserver(entries => {
+      const cr = entries[0].contentRect;
+      setRect({ width: cr.width, height: cr.height });
+    });
+    ro.observe(ref.current);
+    return () => ro.disconnect();
+  }, []);
+
+  return { ref, rect };
+}
+
+export const Card: React.FC<React.PropsWithChildren<{ title: string; subtitle?: string }>> = ({ title, subtitle, children }) => (
+  <div className="rounded-2xl border border-zinc-200/70 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm overflow-hidden">
+    <div className="border-b border-zinc-100/80 dark:border-zinc-800 px-4 sm:px-6 py-10">
+      <h3 className="text-zinc-900 dark:text-zinc-50 font-semibold text-base sm:text-lg">{title}</h3>
+      {subtitle && <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-0.5">{subtitle}</p>}
+    </div>
+    <div className="p-4 sm:p-6">{children}</div>
+  </div>
+);
+
+export const XAxis: React.FC<{
+  scale: ContinuousScale;
+  y: number;
+  format?: (d: any) => string;
+  ticks?: number;
+}> = ({ scale, y, format}) => {
+  const values = scale.domain();
+  const f = format ?? (d => (d instanceof Date ? d3.timeFormat("%b")(d) : String(d)));
+  return (
+    <g transform={`translate(0,${y})`} className="text-zinc-400">
+      <line x1={0} x2={(scale.range() as number[])[1]} y1={0} y2={0} className="stroke-zinc-200 dark:stroke-zinc-800" />
+      {values.map((v: any, i: number) => (
+        <g key={i} transform={`translate(${(scale as any)(v)},0)`}>
+          <line y2={6} className="stroke-zinc-300 dark:stroke-zinc-700" />
+          <text dy={16} className="text-[10px] sm:text-xs fill-zinc-500 dark:fill-zinc-400" textAnchor="middle">
+            {f(v)}
+          </text>
+        </g>
+      ))}
+    </g>
+  );
+};
+
+export const YAxis: React.FC<{
+  scale: d3.ScaleLinear<number, number>;
+  x: number;
+  ticks?: number;
+  format?: (n: number) => string;
+}> = ({ scale, x, ticks = 5, format = d3.format("~s") }) => {
+  const values = scale.ticks(ticks);
+  return (
+    <g transform={`translate(${x},0)`} className="text-zinc-400">
+      <line y1={0} y2={(scale.range() as number[])[0]} className="stroke-zinc-200 dark:stroke-zinc-800" />
+      {values.map((v : number, i : number) => (
+        <g key={i} transform={`translate(0,${scale(v)})`}>
+          <line x2={-6} className="stroke-zinc-300 dark:stroke-zinc-700" />
+          <text x={-10} dy={"0.32em"} className="text-[10px] sm:text-xs fill-zinc-500 dark:fill-zinc-400" textAnchor="end">
+            {format(v)}
+          </text>
+          <line x1={0} x2={(scale.range() as number[])[1]} className="stroke-zinc-100 dark:stroke-zinc-800" />
+        </g>
+      ))}
+    </g>
+  );
+};
+
 
 /* =========================
    Hooks
