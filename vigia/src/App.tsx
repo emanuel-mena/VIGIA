@@ -1,6 +1,6 @@
 import { percentRows } from "./data/percentRows";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import {
   GlassCard,
   Badge,
