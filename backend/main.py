@@ -341,28 +341,73 @@ def top_inversiones():
 # -----------------------------------------------------------
 # ENDPOINTS NUEVOS (EGRESOS → MultiPercentLineChart)
 # -----------------------------------------------------------
-@app.get("/egresos-linea-data")
-def egresos_linea_data(
+@app.get("/egresos-linea-totales")
+def egresos_linea_totales(
     titulo: str | None = Query(None, description="Filtrar por Titulo_Descripcion exacto (opcional)")
 ):
     """
-    Retorna filas en formato:
-      { month: number, series: string, value: number }
-    donde 'value' es el porcentaje (0..100) de cada serie dentro de cada mes.
+    Devuelve filas {month, series, value} donde value es el MONTO TOTAL (no %)
+    por Mes y Titulo_Descripcion.
     """
     if df_egresos.empty or not lista_columnas_egresos:
         return []
-    try:
-        rows = construir_multi_percent_rows(
-            df_src=df_egresos,
-            cols_montos=lista_columnas_egresos,
-            titulo_exact=titulo,
-            month_col="Mes",
-            title_col="Titulo_Descripcion",
-        )
-        return rows
-    except Exception as e:
-        return {"error": str(e)}
+
+    df_tmp = df_egresos.copy()
+
+    # Normaliza texto clave
+    for col in ["Mes", "Titulo_Descripcion"]:
+        if col in df_tmp.columns:
+            df_tmp[col] = (
+                df_tmp[col].astype(str)
+                .str.normalize("NFKC")
+                .str.strip()
+                .str.replace(r"\s+", " ", regex=True)
+            )
+
+    # Filtro opcional
+    if titulo and "Titulo_Descripcion" in df_tmp.columns:
+        def _norm(s: str) -> str:
+            s = unicodedata.normalize("NFD", s).encode("ascii","ignore").decode("utf-8")
+            return s.lower().strip()
+        t_norm = _norm(titulo)
+        df_tmp = df_tmp[df_tmp["Titulo_Descripcion"].apply(lambda x: _norm(str(x)) == t_norm)]
+
+    # Montos numéricos y total por fila
+    for c in lista_columnas_egresos:
+        if c in df_tmp.columns and df_tmp[c].dtype == "object":
+            df_tmp[c] = (
+                df_tmp[c].astype(str)
+                .str.replace(",", ".", regex=False)
+                .str.replace(" ", "", regex=False)
+            )
+        if c in df_tmp.columns:
+            df_tmp[c] = pd.to_numeric(df_tmp[c], errors="coerce")
+
+    df_tmp["Total_Egreso"] = df_tmp[lista_columnas_egresos].sum(axis=1, numeric_only=True)
+
+    # Mes a número
+    months_num = df_tmp["Mes"].map(to_month_number)
+    if months_num.isna().all():
+        months_num = pd.to_numeric(df_tmp["Mes"], errors="coerce")
+    df_tmp["_MesNum"] = months_num
+    if df_tmp["_MesNum"].isna().all():
+        uniq = list(dict.fromkeys(df_tmp["Mes"].tolist()))
+        idx_map = {v: i+1 for i, v in enumerate(uniq)}
+        df_tmp["_MesNum"] = df_tmp["Mes"].map(idx_map)
+
+    # Agrupar y devolver
+    g = (
+        df_tmp.groupby(["_MesNum", "Titulo_Descripcion"], as_index=False)["Total_Egreso"]
+        .sum()
+        .rename(columns={"_MesNum": "MesNum"})
+        .sort_values(["MesNum", "Titulo_Descripcion"])
+    )
+
+    return [
+        {"month": int(m), "series": str(s), "value": float(v)}
+        for m, s, v in zip(g["MesNum"], g["Titulo_Descripcion"], g["Total_Egreso"])
+    ]
+
 
 @app.get("/egresos-series")
 def egresos_series():

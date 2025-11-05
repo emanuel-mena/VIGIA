@@ -1,6 +1,3 @@
-import { percentRows } from "./data/percentRows";
-import {IframeCard} from "./components/IFrameCard";
-
 import { useState } from "react";
 import {
   GlassCard,
@@ -10,35 +7,19 @@ import {
   MobileLink,
   FeatureCard,
   TechLegend,
-  Card, FullBleedSection,
+  Card,
+  FullBleedSection,
 } from "./components/Utils";
-
-// src/api.ts
-const API_BASE = import.meta.env.VITE_API_BASE || "/api";
-
-export type TopInversion = {
-  Institucion: string;
-  "Monto adjudicado en colones": number;
-};
-
-import { MultiPercentLineChart } from "./components/MultiPercentLineChart";
-
-
-export async function fetchTopInversiones(): Promise<TopInversion[]> {
-  const res = await fetch(`${API_BASE}/top-inversiones`);
-  if (!res.ok) throw new Error(`API error ${res.status}`);
-  return res.json();
-}
-
-
-/**import { AreaLineChart } from "./components/AreaLineComponent";
-import { GroupedBars } from "./components/GroupedBarChartComponent";
-import { ScatterTrend } from "./components/ScatterTrendLineComponent";
-import { DonutChart } from "./components/DonutChartComponent";*/
-import TopInversionesChart from './components/TopInversionesChart';
+import TopInversionesChart from "./components/TopInversionesChart";
 import { TeamMemberCard, type TeamMember } from "./components/TeamMemberCard";
 import AuroraBackground from "./components/AuroraBackground";
 
+// 🔹 Nuevo: panel que hace fetch a /egresos-series y /egresos-linea-data
+import MultiPercentPanel from "./components/MultiPercentPanel";
+
+function Logo() {
+  return <img className="h-20 w-auto p-2" src="./assets/vigia_logo.svg" alt="VIGÍA" />;
+}
 
 const teamOne: TeamMember[] = [
   {
@@ -62,80 +43,26 @@ const teamOne: TeamMember[] = [
     image: "/team/Gabriela_pfp.webp",
     linkedin: "https://www.linkedin.com/in/gabriela-urbina-hern%C3%A1ndez-41a056200/",
   },
-
 ];
 
-const teamTwo: TeamMember[] = [{
-  name: "María Jesús Rodríguez",
-  title: "Estudiante TICs",
-  role: "Analisis de Datos",
-  image: "/team/Maria_pfp.webp",
-  linkedin: "https://www.linkedin.com/in/mar%C3%ADa-jes%C3%BAs-rodr%C3%ADguez-molina-/",
-},
-{
-  name: "Melina Soto Badilla",
-  title: "Tecnica en Redes",
-  role: "Integración de APIs",
-  image: "/team/Melina_pfp.webp",
-  linkedin: "https://www.linkedin.com/in/melina-soto-09088a303/",
-},]
-
-// Paleta (sugerido en index.css):
-// :root{ --clr-navy:#04244D; --clr-cyan:#59E3E6; --clr-white:#FFFFFF; --clr-crimson:#B6244F; --clr-pink:#EA638C; }
-// html { scroll-behavior: smooth; }
+const teamTwo: TeamMember[] = [
+  {
+    name: "María Jesús Rodríguez",
+    title: "Estudiante TICs",
+    role: "Analisis de Datos",
+    image: "/team/Maria_pfp.webp",
+    linkedin: "https://www.linkedin.com/in/mar%C3%ADa-jes%C3%BAs-rodr%C3%ADguez-molina-/",
+  },
+  {
+    name: "Melina Soto Badilla",
+    title: "Tecnica en Redes",
+    role: "Integración de APIs",
+    image: "/team/Melina_pfp.webp",
+    linkedin: "https://www.linkedin.com/in/melina-soto-09088a303/",
+  },
+];
 
 export default function App() {
-  /** =========================
-   *  Datos de ejemplo (mock)
-   *  ========================= */
-  // Serie temporal (12 meses)
-  /**const seriesA = useMemo(
-    () =>
-      Array.from({ length: 12 }, (_, i) => ({
-        date: new Date(2025, i, 1),
-        value: Math.round(40 + 20 * Math.sin(i / 1.8) + Math.random() * 8),
-      })),
-    []
-  );
-
-  // Barras agrupadas (dos grupos por categoría)
-  const categories = useMemo(
-    () => [
-      { label: "Q1", group: "2024", value: 120 },
-      { label: "Q1", group: "2025", value: 148 },
-      { label: "Q2", group: "2024", value: 160 },
-      { label: "Q2", group: "2025", value: 175 },
-      { label: "Q3", group: "2024", value: 142 },
-      { label: "Q3", group: "2025", value: 168 },
-      { label: "Q4", group: "2024", value: 180 },
-      { label: "Q4", group: "2025", value: 196 },
-    ],
-    []
-  );
-
-  // Dispersión + recta de tendencia
-  const scatterPoints = useMemo(
-    () =>
-      Array.from({ length: 40 }, () => {
-        const x = Math.random() * 100;
-        // relación positiva con ruido
-        const y = x * 0.8 + 10 + (Math.random() - 0.5) * 20;
-        return { x, y };
-      }),
-    []
-  );
-
-  // Donut
-  const donutData = useMemo(
-    () => [
-      { name: "Android", value: 58 },
-      { name: "iOS", value: 34 },
-      { name: "Web", value: 20 },
-      { name: "Otros", value: 8 },
-    ],
-    []
-  );*/
-
   return (
     <div className="min-h-screen bg-black text-white selection:bg-cyan-300/40 selection:text-white">
       {/* Fondo con degradados dinámicos (blurred blobs) */}
@@ -151,10 +78,7 @@ export default function App() {
         {/* Introducción */}
         <FullBleedSection id="introduccion" bg="bg-black" className="py-0">
           <div className="relative min-h-[80vh] w-full">
-            {/* Fondo AURORA: detrás del contenido, NO z negativo */}
             <AuroraBackground />
-
-            {/* Contenido centrado, encima del fondo */}
             <div className="relative z-10 mx-auto flex min-h-[80vh] max-w-5xl flex-col items-center justify-center px-4 sm:px-6 text-center">
               <Badge>Propuesta de solución</Badge>
               <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
@@ -192,27 +116,16 @@ export default function App() {
                   Arquitectura y funcionalidades clave
                 </h2>
                 <p className="mt-3 max-w-2xl text-zinc-300">
-                  Describe cómo funciona tu solución, su arquitectura a alto nivel
-                  y las tecnologías empleadas. Luego, lista las funcionalidades
-                  destacadas y su valor.
+                  Describe cómo funciona tu solución, su arquitectura a alto nivel y las tecnologías empleadas.
                 </p>
               </div>
               <TechLegend />
             </div>
 
             <div className="mt-8 grid gap-6 md:grid-cols-3">
-              <FeatureCard
-                title="Módulo A"
-                desc="Explica la funcionalidad principal y el beneficio directo para el usuario."
-              />
-              <FeatureCard
-                title="Módulo B"
-                desc="Resalta seguridad, rendimiento y/o accesibilidad, según corresponda."
-              />
-              <FeatureCard
-                title="Módulo C"
-                desc="Incluye métricas o KPIs que evidencien impacto o mejoras."
-              />
+              <FeatureCard title="Módulo A" desc="Explica la funcionalidad principal y el beneficio directo para el usuario." />
+              <FeatureCard title="Módulo B" desc="Resalta seguridad, rendimiento y/o accesibilidad, según corresponda." />
+              <FeatureCard title="Módulo C" desc="Incluye métricas o KPIs que evidencien impacto o mejoras." />
             </div>
 
             <GlassCard className="mt-8">
@@ -227,9 +140,8 @@ export default function App() {
           </div>
         </FullBleedSection>
 
-
         {/* =========================
-            NUEVA SECCIÓN: GRÁFICOS
+            GRÁFICOS
            ========================= */}
         <FullBleedSection id="graficos" className="py-20 sm:py-20">
           <div className="mx-auto max-w-6xl">
@@ -240,30 +152,10 @@ export default function App() {
                   Visualizaciones clave (D3 + React)
                 </h2>
                 <p className="mt-3 max-w-2xl text-zinc-300">
-                  Un set de componentes reutilizables para mostrar series temporales,
-                  comparativas por categoría, correlaciones con tendencia y reparto por
-                  segmentos.
+                  Componentes reutilizables conectados a la API FastAPI.
                 </p>
               </div>
             </div>
-
-            {/*<div className="mt-8 grid gap-6 md:grid-cols-2">
-              <Card title="Revenue over time" subtitle="Area + Line con tooltip">
-                <AreaLineChart data={seriesA} />
-              </Card>
-
-              <Card title="Performance por categoría" subtitle="Barras agrupadas con leyenda">
-                <GroupedBars data={categories} />
-              </Card>
-
-              <Card title="Correlación" subtitle="Dispersión con recta de tendencia">
-                <ScatterTrend data={scatterPoints} />
-              </Card>
-
-              <Card title="Participación de plataforma" subtitle="Donut + leyenda">
-                <DonutChart data={donutData} />
-              </Card>
-            </div>*/}
 
             <div>
               <Card title="Top 5 instituciones por inversión" subtitle="Datos de /top-inversiones (FastAPI)">
@@ -272,20 +164,15 @@ export default function App() {
                 </div>
               </Card>
 
-              <Card title="Distribución porcentual mensual" subtitle="Multi-línea por institución (0-100%)">
-                <MultiPercentLineChart data={percentRows} />
+              <Card
+                title="Distribución porcentual mensual"
+                subtitle="Multi-línea por Título de Descripción (0–100%) · fuente: /egresos-linea-data"
+              >
+                <MultiPercentPanel />
               </Card>
-
             </div>
-
-            <IframeCard
-              title="Mapa de Licitaciones CR"
-              src="/data/mapa_cantones_CR.html"
-              className="mt-6"
-            />
           </div>
         </FullBleedSection>
-
 
         {/* Créditos */}
         <FullBleedSection id="creditos" className="py-20 sm:py-20">
@@ -309,7 +196,6 @@ export default function App() {
               <TeamMemberCard key={member.name} member={member} />
             ))}
           </div>
-
 
           <div className="mt-12 mx-auto max-w-3xl">
             <GlassCard>
@@ -342,7 +228,7 @@ function Header() {
         <nav className="hidden items-center gap-1 sm:flex">
           <NavLink href="#introduccion">Introducción</NavLink>
           <NavLink href="#solucion">Solución</NavLink>
-          <NavLink href="#graficos">Gráficos</NavLink>{/* nuevo */}
+          <NavLink href="#graficos">Gráficos</NavLink>
           <NavLink href="#creditos">Créditos</NavLink>
           <CTA href="#solucion">Ver demo</CTA>
         </nav>
@@ -352,33 +238,21 @@ function Header() {
           className="sm:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 ring-1 ring-white/10 hover:bg-white/10"
           onClick={() => setOpen(!open)}
         >
-          {/* Icono accesible (decorativo) */}
           <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24">
             <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <div className="sm:hidden border-t border-white/10 bg-zinc-900/60 backdrop-blur">
           <div className="mx-auto max-w-7xl px-4 py-3">
             <div className="grid gap-2">
-              <MobileLink href="#introduccion" onClick={() => setOpen(false)}>
-                Introducción
-              </MobileLink>
-              <MobileLink href="#solucion" onClick={() => setOpen(false)}>
-                Solución
-              </MobileLink>
-              <MobileLink href="#graficos" onClick={() => setOpen(false)}>
-                Gráficos
-              </MobileLink>
-              <MobileLink href="#creditos" onClick={() => setOpen(false)}>
-                Créditos
-              </MobileLink>
-              <CTA href="#solucion" className="mt-2 w-full text-center">
-                Ver demo
-              </CTA>
+              <MobileLink href="#introduccion" onClick={() => setOpen(false)}>Introducción</MobileLink>
+              <MobileLink href="#solucion" onClick={() => setOpen(false)}>Solución</MobileLink>
+              <MobileLink href="#graficos" onClick={() => setOpen(false)}>Gráficos</MobileLink>
+              <MobileLink href="#creditos" onClick={() => setOpen(false)}>Créditos</MobileLink>
+              <CTA href="#solucion" className="mt-2 w-full text-center">Ver demo</CTA>
             </div>
           </div>
         </div>
@@ -404,8 +278,4 @@ function Footer() {
       </div>
     </footer>
   );
-}
-
-function Logo() {
-  return <img className="h-20 w-auto p-2" src='./assets/vigia_logo.svg' alt="VIGÍA" />;
 }
