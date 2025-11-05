@@ -4,10 +4,84 @@ import React, { useRef, useEffect, useState } from "react";
    Axis components (React render)
    ============================= */
 
+
+/** Escalas que puede dibujar el eje X (continuous + categóricas) */
+type XScale =
+  | d3.ScaleLinear<number, number>
+  | d3.ScaleTime<number, number>
+  | d3.ScaleLogarithmic<number, number>
+  | d3.ScaleBand<string>
+  | d3.ScalePoint<string>;
+
+/** (opcional) Si ya usas ContinuousScale en otros lados puedes dejarlo,
+    pero XAxis ahora usará XScale */
 type ContinuousScale =
   | d3.ScaleLinear<number, number>
   | d3.ScaleTime<number, number>
   | d3.ScaleLogarithmic<number, number>;
+
+/** Eje X que soporta escalas continuas y categóricas (band/point) */
+export const XAxis: React.FC<{
+  scale: XScale;
+  y: number;
+  format?: (d: any) => string;
+  ticks?: number;
+}> = ({ scale, y, format, ticks }) => {
+  // Obtiene valores a rotular: para band/point usa domain() (categorías),
+  // para escalas con ticks usa scale.ticks() si existe, si no domain().
+  const getValues = () => {
+    const s: any = scale as any;
+    if (typeof s.ticks === "function") {
+      return s.ticks(ticks ?? 6);
+    }
+    return s.domain?.() ?? [];
+  };
+
+  const values = getValues();
+
+  // Posición del tick: para band, centramos con bandwidth()/2
+  const pos = (v: any) => {
+    const s: any = scale as any;
+    const x = s(v);
+    if (typeof s.bandwidth === "function") {
+      return (x ?? 0) + s.bandwidth() / 2;
+    }
+    return x ?? 0;
+  };
+
+  // Fin del eje (ancho)
+  const rng = (scale.range() as number[]) || [0, 0];
+  const axisW = Math.max(...rng);
+
+  const f =
+    format ??
+    ((d: any) =>
+      d instanceof Date ? d3.timeFormat("%b")(d) : String(d));
+
+  return (
+    <g transform={`translate(0,${y})`} className="text-zinc-400">
+      <line
+        x1={0}
+        x2={axisW}
+        y1={0}
+        y2={0}
+        className="stroke-zinc-200 dark:stroke-zinc-800"
+      />
+      {values.map((v: any, i: number) => (
+        <g key={i} transform={`translate(${pos(v)},0)`}>
+          <line y2={6} className="stroke-zinc-300 dark:stroke-zinc-700" />
+          <text
+            dy={16}
+            className="text-[10px] sm:text-xs fill-zinc-500 dark:fill-zinc-400"
+            textAnchor="middle"
+          >
+            {f(v)}
+          </text>
+        </g>
+      ))}
+    </g>
+  );
+};
 
 export function useMeasure<T extends HTMLElement>() {
   const ref = useRef<T | null>(null);
@@ -36,28 +110,6 @@ export const Card: React.FC<React.PropsWithChildren<{ title: string; subtitle?: 
   </div>
 );
 
-export const XAxis: React.FC<{
-  scale: ContinuousScale;
-  y: number;
-  format?: (d: any) => string;
-  ticks?: number;
-}> = ({ scale, y, format}) => {
-  const values = scale.domain();
-  const f = format ?? (d => (d instanceof Date ? d3.timeFormat("%b")(d) : String(d)));
-  return (
-    <g transform={`translate(0,${y})`} className="text-zinc-400">
-      <line x1={0} x2={(scale.range() as number[])[1]} y1={0} y2={0} className="stroke-zinc-200 dark:stroke-zinc-800" />
-      {values.map((v: any, i: number) => (
-        <g key={i} transform={`translate(${(scale as any)(v)},0)`}>
-          <line y2={6} className="stroke-zinc-300 dark:stroke-zinc-700" />
-          <text dy={16} className="text-[10px] sm:text-xs fill-zinc-500 dark:fill-zinc-400" textAnchor="middle">
-            {f(v)}
-          </text>
-        </g>
-      ))}
-    </g>
-  );
-};
 
 export const YAxis: React.FC<{
   scale: d3.ScaleLinear<number, number>;
