@@ -65,3 +65,14 @@ filter: blur(40px) saturate(0.9);
     mix-blend-mode: overlay;
   }
 }
+
+/*Extra*/
+
+/* Justifica el texto dentro de los GlassCard */
+.glasscard-text {
+  text-align: justify;
+}
+
+.glass-card h3 {
+  text-align: center;
+}
