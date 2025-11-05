@@ -1,21 +1,21 @@
 import * as d3 from "d3";
 import React, { useRef, useEffect, useState } from "react";
+
 /* =============================
    Axis components (React render)
    ============================= */
 
-
 /** Escalas que puede dibujar el eje X (continuous + categóricas) */
-type XScale =
+export type XScale =
   | d3.ScaleLinear<number, number>
   | d3.ScaleTime<number, number>
   | d3.ScaleLogarithmic<number, number>
   | d3.ScaleBand<string>
   | d3.ScalePoint<string>;
 
-/** (opcional) Si ya usas ContinuousScale en otros lados puedes dejarlo,
-    pero XAxis ahora usará XScale */
-type ContinuousScale =
+/** (opcional) Si ya usas ContinuousScale en otros lados puedes dejarlo/exportarlo.
+    XAxis ahora usa XScale. */
+export type ContinuousScale =
   | d3.ScaleLinear<number, number>
   | d3.ScaleTime<number, number>
   | d3.ScaleLogarithmic<number, number>;
@@ -27,36 +27,25 @@ export const XAxis: React.FC<{
   format?: (d: any) => string;
   ticks?: number;
 }> = ({ scale, y, format, ticks }) => {
-  // Obtiene valores a rotular: para band/point usa domain() (categorías),
-  // para escalas con ticks usa scale.ticks() si existe, si no domain().
-  const getValues = () => {
-    const s: any = scale as any;
-    if (typeof s.ticks === "function") {
-      return s.ticks(ticks ?? 6);
-    }
-    return s.domain?.() ?? [];
-  };
+  const s: any = scale as any;
 
-  const values = getValues();
+  // Para lineal/tiempo/log usa ticks(); para band/point usa domain()
+  const values =
+    typeof s.ticks === "function" ? s.ticks(ticks ?? 6) : s.domain?.() ?? [];
 
-  // Posición del tick: para band, centramos con bandwidth()/2
+  // Posición de tick: centra cuando es band/point
   const pos = (v: any) => {
-    const s: any = scale as any;
     const x = s(v);
-    if (typeof s.bandwidth === "function") {
-      return (x ?? 0) + s.bandwidth() / 2;
-    }
-    return x ?? 0;
+    return typeof s.bandwidth === "function" ? (x ?? 0) + s.bandwidth() / 2 : (x ?? 0);
   };
 
-  // Fin del eje (ancho)
+  // Ancho del eje (usa el mayor de range())
   const rng = (scale.range() as number[]) || [0, 0];
   const axisW = Math.max(...rng);
 
   const f =
     format ??
-    ((d: any) =>
-      d instanceof Date ? d3.timeFormat("%b")(d) : String(d));
+    ((d: any) => (d instanceof Date ? d3.timeFormat("%b")(d) : String(d)));
 
   return (
     <g transform={`translate(0,${y})`} className="text-zinc-400">
@@ -100,16 +89,23 @@ export function useMeasure<T extends HTMLElement>() {
   return { ref, rect };
 }
 
-export const Card: React.FC<React.PropsWithChildren<{ title: string; subtitle?: string }>> = ({ title, subtitle, children }) => (
+export const Card: React.FC<
+  React.PropsWithChildren<{ title: string; subtitle?: string }>
+> = ({ title, subtitle, children }) => (
   <div className="rounded-2xl border border-zinc-200/70 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm overflow-hidden">
     <div className="border-b border-zinc-100/80 dark:border-zinc-800 px-4 sm:px-6 py-10">
-      <h3 className="text-zinc-900 dark:text-zinc-50 font-semibold text-base sm:text-lg">{title}</h3>
-      {subtitle && <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-0.5">{subtitle}</p>}
+      <h3 className="text-zinc-900 dark:text-zinc-50 font-semibold text-base sm:text-lg">
+        {title}
+      </h3>
+      {subtitle && (
+        <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-0.5">
+          {subtitle}
+        </p>
+      )}
     </div>
     <div className="p-4 sm:p-6">{children}</div>
   </div>
 );
-
 
 export const YAxis: React.FC<{
   scale: d3.ScaleLinear<number, number>;
@@ -120,20 +116,32 @@ export const YAxis: React.FC<{
   const values = scale.ticks(ticks);
   return (
     <g transform={`translate(${x},0)`} className="text-zinc-400">
-      <line y1={0} y2={(scale.range() as number[])[0]} className="stroke-zinc-200 dark:stroke-zinc-800" />
-      {values.map((v : number, i : number) => (
+      <line
+        y1={0}
+        y2={(scale.range() as number[])[0]}
+        className="stroke-zinc-200 dark:stroke-zinc-800"
+      />
+      {values.map((v: number, i: number) => (
         <g key={i} transform={`translate(0,${scale(v)})`}>
           <line x2={-6} className="stroke-zinc-300 dark:stroke-zinc-700" />
-          <text x={-10} dy={"0.32em"} className="text-[10px] sm:text-xs fill-zinc-500 dark:fill-zinc-400" textAnchor="end">
+          <text
+            x={-10}
+            dy={"0.32em"}
+            className="text-[10px] sm:text-xs fill-zinc-500 dark:fill-zinc-400"
+            textAnchor="end"
+          >
             {format(v)}
           </text>
-          <line x1={0} x2={(scale.range() as number[])[1]} className="stroke-zinc-100 dark:stroke-zinc-800" />
+          <line
+            x1={0}
+            x2={(scale.range() as number[])[1]}
+            className="stroke-zinc-100 dark:stroke-zinc-800"
+          />
         </g>
       ))}
     </g>
   );
 };
-
 
 /* =========================
    Hooks
@@ -173,7 +181,9 @@ export function GlassCard({
   className?: string;
 }) {
   return (
-    <div className={`rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur ${className}`}>
+    <div
+      className={`rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur ${className}`}
+    >
       {children}
     </div>
   );
@@ -192,7 +202,9 @@ export function Badge({
     pink: "bg-[var(--clr-pink,#EA638C)] text-black",
   } as const;
   return (
-    <span className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ring-white/10 ${colorMap[color]}`}>
+    <span
+      className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ring-white/10 ${colorMap[color]}`}
+    >
       {children}
     </span>
   );
@@ -267,9 +279,18 @@ export function FeatureCard({ title, desc }: { title: string; desc: string }) {
       <h3 className="text-lg font-semibold">{title}</h3>
       <p className="mt-2 text-zinc-300">{desc}</p>
       <div className="mt-4 flex items-center gap-2">
-        <span className="inline-block h-2 w-2 rounded-full" style={{ background: "var(--clr-cyan, #59E3E6)" }} />
-        <span className="inline-block h-2 w-2 rounded-full" style={{ background: "var(--clr-pink, #EA638C)" }} />
-        <span className="inline-block h-2 w-2 rounded-full" style={{ background: "var(--clr-crimson, #B6244F)" }} />
+        <span
+          className="inline-block h-2 w-2 rounded-full"
+          style={{ background: "var(--clr-cyan, #59E3E6)" }}
+        />
+        <span
+          className="inline-block h-2 w-2 rounded-full"
+          style={{ background: "var(--clr-pink, #EA638C)" }}
+        />
+        <span
+          className="inline-block h-2 w-2 rounded-full"
+          style={{ background: "var(--clr-crimson, #B6244F)" }}
+        />
       </div>
     </GlassCard>
   );
@@ -293,7 +314,10 @@ export function TechLegend() {
 export function Swatch({ hex, label }: { hex: string; label: string }) {
   return (
     <div className="text-center">
-      <div className="mx-auto h-8 w-full rounded-md border border-white/10" style={{ background: hex }} />
+      <div
+        className="mx-auto h-8 w-full rounded-md border border-white/10"
+        style={{ background: hex }}
+      />
       <div className="mt-1 text-[10px] text-zinc-300">{label}</div>
       <div className="text-[10px] text-zinc-500 break-all">{String(hex)}</div>
     </div>
