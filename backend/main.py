@@ -17,14 +17,22 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# CORS (permite peticiones desde cualquier origen, útil para dashboards)
+
+
+FRONTEND_ORIGINS = [
+    "https://vigia.up.railway.app",  # dominio público del frontend
+    "http://localhost:5173",                 # dev vite
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=FRONTEND_ORIGINS,
+    allow_credentials=False,   # déjalo False si no usas cookies/autenticación de navegador
+    allow_methods=["*"],       # GET, POST, PUT, DELETE, OPTIONS…
+    allow_headers=["*"],       # Content-Type, Authorization, etc.
+    expose_headers=["*"],      # opcional
 )
+
 
 # -----------------------------------------------------------
 # FUNCIÓN AUXILIAR DE NORMALIZACIÓN
