@@ -1,4 +1,5 @@
 import { percentRows } from "./data/percentRows";
+import {IframeCard} from "./components/IFrameCard";
 
 import { useState } from "react";
 import {
@@ -276,6 +277,12 @@ export default function App() {
               </Card>
 
             </div>
+
+            <IframeCard
+              title="Mapa de Licitaciones CR"
+              src="/data/mapa_licitaciones_CR_filtrado.html"
+              className="mt-6"
+            />
           </div>
         </FullBleedSection>
 
