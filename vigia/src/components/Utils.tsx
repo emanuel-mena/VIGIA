@@ -1,6 +1,67 @@
 import * as d3 from "d3";
 import React, { useRef, useEffect, useState } from "react";
 
+// --- Animaciones: FadeIn desde abajo con soporte reduced-motion ---
+import { motion, useReducedMotion } from "framer-motion";
+
+
+type FadeInProps = React.PropsWithChildren<{
+  /** Retraso en segundos para escalonar múltiples elementos */
+  delay?: number;
+  /** Margen de entrada: 0..1 (qué % debe verse para disparar) */
+  amount?: number;
+}>;
+
+export const FadeIn: React.FC<FadeInProps> = ({ children, delay = 0, amount = 0.2 }) => {
+  const reduce = useReducedMotion();
+  const initial = reduce ? { opacity: 0 } : { opacity: 0, y: 24 };
+  const animate = reduce ? { opacity: 1 } : { opacity: 1, y: 0 };
+
+  return (
+    <motion.div
+      initial={initial}
+      whileInView={animate}
+      viewport={{ once: true, amount }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+/** Contenedor con stagger para listas de items */
+export const Stagger: React.FC<React.PropsWithChildren<{ delay?: number; gap?: number }>> = ({
+  children,
+  delay = 0,
+  gap = 0.08, // tiempo entre hijos
+}) => {
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={{
+        hidden: {},
+        show: {
+          transition: { staggerChildren: gap, delayChildren: delay },
+        },
+      }}
+    >
+      {React.Children.map(children, (child) => (
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 24 },
+            show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+          }}
+        >
+          {child}
+        </motion.div>
+      ))}
+    </motion.div>
+  );
+};
+
+
 /* =============================
    Axis components (React render)
    ============================= */

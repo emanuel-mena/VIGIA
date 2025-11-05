@@ -1,4 +1,7 @@
 import * as d3 from "d3";
+// NUEVO: importa FadeIn y Stagger
+import { FadeIn, Stagger } from "./components/Utils";
+
 
 // Base de API
 const API_BASE = import.meta.env.VITE_API_BASE || "/api";
@@ -230,37 +233,44 @@ export default function App() {
           <div className="relative min-h-[80vh] w-full">
             <AuroraBackground />
             <div className="relative z-10 mx-auto flex min-h-[80vh] max-w-5xl flex-col items-center justify-center px-4 sm:px-6 text-center">
-              <Badge>Propuesta de solución</Badge>
-              <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">Donde la verdad no se negocia</h1>
-              <p className="mt-5 max-w-2xl text-zinc-200/90">
-                Transparencia, datos abiertos y visualizaciones en tiempo real para combatir la corrupción.
-              </p>
+              <FadeIn><Badge>Propuesta de solución</Badge></FadeIn>
+              <FadeIn delay={0.05}>
+                <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">Donde la verdad no se negocia</h1>
+              </FadeIn>
+              <FadeIn delay={0.1}>
+                <p className="mt-5 max-w-2xl text-zinc-200/90">
+                  Transparencia, datos abiertos y visualizaciones en tiempo real para combatir la corrupción.
+                </p>
+              </FadeIn>
 
-              <div className="mt-10 grid w-full max-w-3xl gap-6 sm:grid-cols-2">
-                <GlassCard className="glass-card">
-                  <div className="glasscard-text">
-                    <h3 className="text-lg font-semibold">Dificultades</h3>
-                    <ul className="mt-2 text-zinc-300 list-disc list-inside space-y-1">
-                      <li>Los datos abiertos del gobierno son poco accesibles y difíciles de interpretar.</li>
-                      <li>No existen herramientas claras para detectar posibles irregularidades en las contrataciones públicas.</li>
-                      <li>La ciudadanía tiene limitada participación en la supervisión del gasto público.</li>
-                    </ul>
-                  </div>
-                </GlassCard>
+              <Stagger delay={0.2}>
+                <div className="mt-10 grid w-full max-w-3xl gap-6 sm:grid-cols-2">
+                  <GlassCard className="glass-card">
+                    <div className="glasscard-text">
+                      <h3 className="text-lg font-semibold">Dificultades</h3>
+                      <ul className="mt-2 text-zinc-300 list-disc list-inside space-y-1">
+                        <li>Los datos abiertos del gobierno son poco accesibles y difíciles de interpretar.</li>
+                        <li>No existen herramientas claras para detectar posibles irregularidades en las contrataciones públicas.</li>
+                        <li>La ciudadanía tiene limitada participación en la supervisión del gasto público.</li>
+                      </ul>
+                    </div>
+                  </GlassCard>
 
-                <GlassCard className="glass-card">
-                  <div className="glasscard-text">
-                    <h3 className="text-lg font-semibold">Objetivo</h3>
-                    <p className="mt-2 text-zinc-300">
-                      Crear una aplicación web que analice y visualice los datos abiertos de Costa Rica para facilitar la detección de
-                      anomalías en contrataciones y promover la transparencia gubernamental.
-                    </p>
-                  </div>
-                </GlassCard>
-              </div>
+                  <GlassCard className="glass-card">
+                    <div className="glasscard-text">
+                      <h3 className="text-lg font-semibold">Objetivo</h3>
+                      <p className="mt-2 text-zinc-300">
+                        Crear una aplicación web que analice y visualice los datos abiertos de Costa Rica para facilitar la detección de
+                        anomalías en contrataciones y promover la transparencia gubernamental.
+                      </p>
+                    </div>
+                  </GlassCard>
+                </div>
+              </Stagger>
             </div>
           </div>
         </FullBleedSection>
+
 
         {/* Solución 
         <FullBleedSection id="solucion" bg="bg-[#1e293b]" className="py-20 sm:py-20">
@@ -291,53 +301,69 @@ export default function App() {
         {/* GRÁFICOS – UNA SOLA COLUMNA */}
         <FullBleedSection id="graficos" className="py-20 sm:py-20">
           <div className="mx-auto max-w-3xl space-y-6">
-            <Card title="Top 5 Instituciones por licitaciones">
-              <div className="pt-2">
-                <TopInversionesChart />
-              </div>
-            </Card>
+            <FadeIn>
+              <Card title="Top 5 Instituciones por licitaciones">
+                <div className="pt-2">
+                  <TopInversionesChart />
+                </div>
+              </Card>
+            </FadeIn>
 
-            <Card title="Top proveedores por monto">
-              <div className="pt-2">
-                <ProveedorTopDonut topN={8} />
-              </div>
-            </Card>
+            <FadeIn delay={0.06}>
+              <Card title="Top proveedores por monto">
+                <div className="pt-2">
+                  <ProveedorTopDonut topN={8} />
+                </div>
+              </Card>
+            </FadeIn>
 
-            {/* Opcional: mapa debajo de los 3 gráficos */}
-            <IframeCard title="Mapa de Licitaciones CR" src="/data/mapa_cantones_CR.html" />
+            <FadeIn delay={0.12}>
+              <IframeCard title="Mapa de Licitaciones CR" src="/data/mapa_cantones_CR.html" />
+            </FadeIn>
           </div>
         </FullBleedSection>
+
 
         {/* Créditos */}
         <FullBleedSection id="creditos" className="py-20 sm:py-20">
           <div className="mx-auto max-w-5xl text-center">
-            <Badge color="cyan">Créditos & Agradecimientos</Badge>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Equipo, mentores y recursos</h2>
-            <p className="mt-3 text-zinc-300 max-w-2xl mx-auto">
-              Agradecemos al equipo de desarrollo, mentores y colaboradores que hicieron posible este proyecto.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-6 sm:grid-cols-1 lg:grid-cols-3 justify-items-center items-stretch mx-auto max-w-3xl">
-            {teamOne.map(member => (
-              <TeamMemberCard key={member.name} member={member} />
-            ))}
-          </div>
-          <div className="mt-10 flex flex-wrap justify-center items-stretch gap-y-6 gap-x-6">
-            {teamTwo.map(member => (
-              <TeamMemberCard key={member.name} member={member} />
-            ))}
-          </div>
-
-          <div className="mt-12 mx-auto max-w-3xl">
-            <GlassCard>
-              <h3 className="text-lg font-semibold">Agradecimientos</h3>
-              <p className="mt-2 text-zinc-300">
-                Agradecimientos especiales a la Universidad CENFOTEC por haber apoyado al equipo con información, contactos y transporte para el evento.
+            <FadeIn><Badge color="cyan">Créditos & Agradecimientos</Badge></FadeIn>
+            <FadeIn delay={0.05}><h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Equipo, mentores y recursos</h2></FadeIn>
+            <FadeIn delay={0.1}>
+              <p className="mt-3 text-zinc-300 max-w-2xl mx-auto">
+                Agradecemos al equipo de desarrollo, mentores y colaboradores que hicieron posible este proyecto.
               </p>
-            </GlassCard>
+            </FadeIn>
           </div>
+
+          <Stagger delay={0.15}>
+            <div className="mt-10 grid gap-6 sm:grid-cols-1 lg:grid-cols-3 justify-items-center items-stretch mx-auto max-w-3xl">
+              {teamOne.map(member => (
+                <TeamMemberCard key={member.name} member={member} />
+              ))}
+            </div>
+          </Stagger>
+
+          <Stagger delay={0.2}>
+            <div className="mt-10 flex flex-wrap justify-center items-stretch gap-y-6 gap-x-6">
+              {teamTwo.map(member => (
+                <TeamMemberCard key={member.name} member={member} />
+              ))}
+            </div>
+          </Stagger>
+
+          <FadeIn delay={0.25}>
+            <div className="mt-12 mx-auto max-w-3xl">
+              <GlassCard>
+                <h3 className="text-lg font-semibold">Agradecimientos</h3>
+                <p className="mt-2 text-zinc-300">
+                  Agradecimientos especiales a la Universidad CENFOTEC por haber apoyado al equipo con información, contactos y transporte para el evento.
+                </p>
+              </GlassCard>
+            </div>
+          </FadeIn>
         </FullBleedSection>
+
       </main>
 
       <Footer />
