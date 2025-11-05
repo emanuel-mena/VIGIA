@@ -46,7 +46,6 @@ export const DonutChart: React.FC<DonutDataProps> = ({data}) => {
             dy={4}
           >
             <tspan className="text-xl font-semibold">{Math.round((data[1].value / total) * 100)}%</tspan>
-            <tspan x={0} dy={18} className="text-xs opacity-70">Android share</tspan>
           </text>
         </g>
       </svg>
