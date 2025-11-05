@@ -280,7 +280,8 @@ export default function App() {
 
             <IframeCard
               title="Mapa de Licitaciones CR"
-              src="/data/mapa_licitaciones_CR_filtrado.html"
+
+              src="/data/mapa_cantones_CR.html"
               className="mt-6"
             />
           </div>
