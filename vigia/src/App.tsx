@@ -88,7 +88,7 @@ export default function App() {
    *  Datos de ejemplo (mock)
    *  ========================= */
   // Serie temporal (12 meses)
-  const seriesA = useMemo(
+  /**const seriesA = useMemo(
     () =>
       Array.from({ length: 12 }, (_, i) => ({
         date: new Date(2025, i, 1),
@@ -133,7 +133,7 @@ export default function App() {
       { name: "Otros", value: 8 },
     ],
     []
-  );
+  );*/
 
   return (
     <div className="min-h-screen bg-black text-white selection:bg-cyan-300/40 selection:text-white">
