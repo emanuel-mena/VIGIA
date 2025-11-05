@@ -153,13 +153,13 @@ export function useMeasure<T extends HTMLElement>() {
 export const Card: React.FC<
   React.PropsWithChildren<{ title: string; subtitle?: string }>
 > = ({ title, subtitle, children }) => (
-  <div className="rounded-2xl border border-zinc-200/70 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm overflow-hidden">
-    <div className="border-b border-zinc-100/80 dark:border-zinc-800 px-4 sm:px-6 py-10">
-      <h3 className="text-zinc-900 dark:text-zinc-50 font-semibold text-base sm:text-lg">
+  <div className="rounded-2xl border border-zinc-200/70 dark:border-zinc-800 bg-zinc-900 dark:bg-zinc-900 shadow-sm overflow-hidden">
+    <div className="border-b border-zinc-800 dark:border-zinc-800 px-4 sm:px-6 py-10">
+      <h3 className="text-zinc-50 dark:text-zinc-50 font-semibold text-base sm:text-lg">
         {title}
       </h3>
       {subtitle && (
-        <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-0.5">
+        <p className="text-zinc-400 dark:text-zinc-400 text-sm mt-0.5">
           {subtitle}
         </p>
       )}
