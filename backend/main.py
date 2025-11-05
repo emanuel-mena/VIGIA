@@ -408,6 +408,76 @@ def egresos_linea_totales(
         for m, s, v in zip(g["MesNum"], g["Titulo_Descripcion"], g["Total_Egreso"])
     ]
 
+@app.get("/egresos-linea-data")
+def egresos_linea_data(
+    titulo: str | None = Query(None, description="Filtrar por Titulo_Descripcion exacto (opcional)")
+):
+    """
+    Devuelve filas {month, series, value} donde value es el % dentro de cada mes (0..100).
+    """
+    if df_egresos.empty or not lista_columnas_egresos:
+        return []
+
+    df_tmp = df_egresos.copy()
+
+    # Normaliza texto clave
+    for col in ["Mes", "Titulo_Descripcion"]:
+        if col in df_tmp.columns:
+            df_tmp[col] = (
+                df_tmp[col].astype(str)
+                .str.normalize("NFKC")
+                .str.strip()
+                .str.replace(r"\s+", " ", regex=True)
+            )
+
+    # Filtro opcional exacto (sin tildes / case-insensitive)
+    if titulo and "Titulo_Descripcion" in df_tmp.columns:
+        def _norm(s: str) -> str:
+            s = unicodedata.normalize("NFD", s).encode("ascii","ignore").decode("utf-8")
+            return s.lower().strip()
+        t_norm = _norm(titulo)
+        df_tmp = df_tmp[df_tmp["Titulo_Descripcion"].apply(lambda x: _norm(str(x)) == t_norm)]
+
+    # Montos numéricos y total por fila
+    for c in lista_columnas_egresos:
+        if c in df_tmp.columns and df_tmp[c].dtype == "object":
+            df_tmp[c] = (
+                df_tmp[c].astype(str)
+                .str.replace(",", ".", regex=False)
+                .str.replace(" ", "", regex=False)
+            )
+        if c in df_tmp.columns:
+            df_tmp[c] = pd.to_numeric(df_tmp[c], errors="coerce")
+
+    df_tmp["Total_Egreso"] = df_tmp[lista_columnas_egresos].sum(axis=1, numeric_only=True)
+
+    # Mes a número
+    months_num = df_tmp["Mes"].map(to_month_number)
+    if months_num.isna().all():
+        months_num = pd.to_numeric(df_tmp["Mes"], errors="coerce")
+    df_tmp["_MesNum"] = months_num
+    if df_tmp["_MesNum"].isna().all():
+        uniq = list(dict.fromkeys(df_tmp["Mes"].tolist()))
+        idx_map = {v: i+1 for i, v in enumerate(uniq)}
+        df_tmp["_MesNum"] = df_tmp["Mes"].map(idx_map)
+
+    # Sumar y convertir a porcentaje por mes
+    g = (
+        df_tmp.groupby(["_MesNum", "Titulo_Descripcion"], as_index=False)["Total_Egreso"]
+        .sum()
+        .rename(columns={"_MesNum": "MesNum"})
+    )
+    g["Porcentaje"] = g.groupby("MesNum")["Total_Egreso"].transform(
+        lambda x: (x / x.sum()) * 100 if x.sum() else 0.0
+    )
+    g = g.sort_values(["MesNum", "Titulo_Descripcion"])
+
+    return [
+        {"month": int(m), "series": str(s), "value": float(p)}
+        for m, s, p in zip(g["MesNum"], g["Titulo_Descripcion"], g["Porcentaje"])
+    ]
+
+
 
 @app.get("/egresos-series")
 def egresos_series():
