@@ -291,7 +291,7 @@ export default function App() {
         {/* GRÁFICOS – UNA SOLA COLUMNA */}
         <FullBleedSection id="graficos" className="py-20 sm:py-20">
           <div className="mx-auto max-w-3xl space-y-6">
-            <Card title="Top 5 Instituciones con más licitaciones">
+            <Card title="Top 5 Instituciones por licitaciones">
               <div className="pt-2">
                 <TopInversionesChart />
               </div>
