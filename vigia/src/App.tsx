@@ -1,6 +1,7 @@
 import { percentRows } from "./data/percentRows";
+import {IframeCard} from "./components/IFrameCard";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import {
   GlassCard,
   Badge,
@@ -30,10 +31,10 @@ export async function fetchTopInversiones(): Promise<TopInversion[]> {
 }
 
 
-import { AreaLineChart } from "./components/AreaLineComponent";
+/**import { AreaLineChart } from "./components/AreaLineComponent";
 import { GroupedBars } from "./components/GroupedBarChartComponent";
 import { ScatterTrend } from "./components/ScatterTrendLineComponent";
-import { DonutChart } from "./components/DonutChartComponent";
+import { DonutChart } from "./components/DonutChartComponent";*/
 import TopInversionesChart from './components/TopInversionesChart';
 import { TeamMemberCard, type TeamMember } from "./components/TeamMemberCard";
 import AuroraBackground from "./components/AuroraBackground";
@@ -88,7 +89,7 @@ export default function App() {
    *  Datos de ejemplo (mock)
    *  ========================= */
   // Serie temporal (12 meses)
-  const seriesA = useMemo(
+  /**const seriesA = useMemo(
     () =>
       Array.from({ length: 12 }, (_, i) => ({
         date: new Date(2025, i, 1),
@@ -133,7 +134,7 @@ export default function App() {
       { name: "Otros", value: 8 },
     ],
     []
-  );
+  );*/
 
   return (
     <div className="min-h-screen bg-black text-white selection:bg-cyan-300/40 selection:text-white">
@@ -276,6 +277,12 @@ export default function App() {
               </Card>
 
             </div>
+
+            <IframeCard
+              title="Mapa de Licitaciones CR"
+              src="/data/mapa_cantones_CR.html"
+              className="mt-6"
+            />
           </div>
         </FullBleedSection>
 

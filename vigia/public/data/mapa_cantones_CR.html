@@ -1,0 +1,1910 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_85008279a929712ac42c91eede2973a0 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_85008279a929712ac42c91eede2973a0" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_85008279a929712ac42c91eede2973a0 = L.map(
+                "map_85008279a929712ac42c91eede2973a0",
+                {
+                    center: [9.63, -84.25],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 8,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_aba81543b19305bb6cb689636af2a42d = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_aba81543b19305bb6cb689636af2a42d.addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+            var circle_marker_ead9f6e4ae26830633592aa8e16b0b9b = L.circleMarker(
+                [10.2735633, -84.0739102],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_4e792d0fffae5457a03a518ce5c5dff2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f83b3140e13083f3803e77af6760b57d = $(`<div id="html_f83b3140e13083f3803e77af6760b57d" style="width: 100.0%; height: 100.0%;">     <b>, </b><br><br>     <b>Total licitaciones:</b> 120<br>     <b>Monto total adjudicado:</b> 12,328,780,700<br>     </div>`)[0];
+                popup_4e792d0fffae5457a03a518ce5c5dff2.setContent(html_f83b3140e13083f3803e77af6760b57d);
+            
+        
+
+        circle_marker_ead9f6e4ae26830633592aa8e16b0b9b.bindPopup(popup_4e792d0fffae5457a03a518ce5c5dff2)
+        ;
+
+        
+    
+    
+            var circle_marker_ac6b027abccd2a2025b0ebac117acf49 = L.circleMarker(
+                [10.0165053, -84.2138674],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_070fcbcd326bb0f522282880d982f784 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_78b803b1a4c9f7748498a50006a8ea6d = $(`<div id="html_78b803b1a4c9f7748498a50006a8ea6d" style="width: 100.0%; height: 100.0%;">     <b>Alajuela, Alajuela</b><br><br>     <b>Total licitaciones:</b> 980<br>     <b>Monto total adjudicado:</b> 572,014,782,196<br>     </div>`)[0];
+                popup_070fcbcd326bb0f522282880d982f784.setContent(html_78b803b1a4c9f7748498a50006a8ea6d);
+            
+        
+
+        circle_marker_ac6b027abccd2a2025b0ebac117acf49.bindPopup(popup_070fcbcd326bb0f522282880d982f784)
+        ;
+
+        
+    
+    
+            var circle_marker_3246f2846e9af0dfc8ef51e07d4bc1de = L.circleMarker(
+                [10.21888, -84.4174738],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_08392f2b82251b777935e9b2f747c11a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_47a7f1103fa8f70c4b9684a8e66cf7c9 = $(`<div id="html_47a7f1103fa8f70c4b9684a8e66cf7c9" style="width: 100.0%; height: 100.0%;">     <b>Alfaro Ruiz, Alajuela</b><br><br>     <b>Total licitaciones:</b> 120<br>     <b>Monto total adjudicado:</b> 4,061,285,171<br>     </div>`)[0];
+                popup_08392f2b82251b777935e9b2f747c11a.setContent(html_47a7f1103fa8f70c4b9684a8e66cf7c9);
+            
+        
+
+        circle_marker_3246f2846e9af0dfc8ef51e07d4bc1de.bindPopup(popup_08392f2b82251b777935e9b2f747c11a)
+        ;
+
+        
+    
+    
+            var circle_marker_397c8d0b2fe483fdc1c40c8b6debe0e2 = L.circleMarker(
+                [9.9794934, -84.3990263],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_779990f00b0abc5a9f9c6c4b828f47b8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_08d7380891b3e73ad010e64eabd6cd49 = $(`<div id="html_08d7380891b3e73ad010e64eabd6cd49" style="width: 100.0%; height: 100.0%;">     <b>Atenas, Alajuela</b><br><br>     <b>Total licitaciones:</b> 106<br>     <b>Monto total adjudicado:</b> 1,416,892,059<br>     </div>`)[0];
+                popup_779990f00b0abc5a9f9c6c4b828f47b8.setContent(html_08d7380891b3e73ad010e64eabd6cd49);
+            
+        
+
+        circle_marker_397c8d0b2fe483fdc1c40c8b6debe0e2.bindPopup(popup_779990f00b0abc5a9f9c6c4b828f47b8)
+        ;
+
+        
+    
+    
+            var circle_marker_534553f114cf4187fe14663cb7df6001 = L.circleMarker(
+                [10.0905786, -84.2993913],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_d8562fc018f9d16e3d1bd2e8c7d75420 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1ff8d1740c4c9716e6c37bd797ffac3d = $(`<div id="html_1ff8d1740c4c9716e6c37bd797ffac3d" style="width: 100.0%; height: 100.0%;">     <b>Grecia, Alajuela</b><br><br>     <b>Total licitaciones:</b> 1402<br>     <b>Monto total adjudicado:</b> 59,250,500,452<br>     </div>`)[0];
+                popup_d8562fc018f9d16e3d1bd2e8c7d75420.setContent(html_1ff8d1740c4c9716e6c37bd797ffac3d);
+            
+        
+
+        circle_marker_534553f114cf4187fe14663cb7df6001.bindPopup(popup_d8562fc018f9d16e3d1bd2e8c7d75420)
+        ;
+
+        
+    
+    
+            var circle_marker_5a9b2bfe03f5c889495032b6ddfc4db0 = L.circleMarker(
+                [10.7035522, -84.8407651],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_373d3b927e7911ff64655675e7aedaf3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dcf35c754509e45a34c84bf1e78ef452 = $(`<div id="html_dcf35c754509e45a34c84bf1e78ef452" style="width: 100.0%; height: 100.0%;">     <b>Guatuso, Alajuela</b><br><br>     <b>Total licitaciones:</b> 405<br>     <b>Monto total adjudicado:</b> 15,912,942,089<br>     </div>`)[0];
+                popup_373d3b927e7911ff64655675e7aedaf3.setContent(html_dcf35c754509e45a34c84bf1e78ef452);
+            
+        
+
+        circle_marker_5a9b2bfe03f5c889495032b6ddfc4db0.bindPopup(popup_373d3b927e7911ff64655675e7aedaf3)
+        ;
+
+        
+    
+    
+            var circle_marker_ceb09d827b685feaad8807de82199aed = L.circleMarker(
+                [10.8570354, -84.7150178],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_73fc26865690784062c21ed88646294d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_63c5851946d0fe6b0b2501e0dadaafba = $(`<div id="html_63c5851946d0fe6b0b2501e0dadaafba" style="width: 100.0%; height: 100.0%;">     <b>Los Chiles, Alajuela</b><br><br>     <b>Total licitaciones:</b> 179<br>     <b>Monto total adjudicado:</b> 1,080,701,024<br>     </div>`)[0];
+                popup_73fc26865690784062c21ed88646294d.setContent(html_63c5851946d0fe6b0b2501e0dadaafba);
+            
+        
+
+        circle_marker_ceb09d827b685feaad8807de82199aed.bindPopup(popup_73fc26865690784062c21ed88646294d)
+        ;
+
+        
+    
+    
+            var circle_marker_5ec2409835a75ce7a872b47662d9610e = L.circleMarker(
+                [10.1054677, -84.3994858],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_128ca483da77a4b1c5805f14b92de173 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a841db46bd2e1afb73f992e9ac4b60e3 = $(`<div id="html_a841db46bd2e1afb73f992e9ac4b60e3" style="width: 100.0%; height: 100.0%;">     <b>Naranjo, Alajuela</b><br><br>     <b>Total licitaciones:</b> 107<br>     <b>Monto total adjudicado:</b> 2,041,006,070<br>     </div>`)[0];
+                popup_128ca483da77a4b1c5805f14b92de173.setContent(html_a841db46bd2e1afb73f992e9ac4b60e3);
+            
+        
+
+        circle_marker_5ec2409835a75ce7a872b47662d9610e.bindPopup(popup_128ca483da77a4b1c5805f14b92de173)
+        ;
+
+        
+    
+    
+            var circle_marker_bb8bfde9d2a64316eec4f741c4c0f1fe = L.circleMarker(
+                [9.8932724, -84.5945818],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_a5d948a9b7119612c9df1ef64ff80d8c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d168ae8a016175c0ab5fdb1aa7578c7d = $(`<div id="html_d168ae8a016175c0ab5fdb1aa7578c7d" style="width: 100.0%; height: 100.0%;">     <b>Orotina, Alajuela</b><br><br>     <b>Total licitaciones:</b> 400<br>     <b>Monto total adjudicado:</b> 11,786,146,859<br>     </div>`)[0];
+                popup_a5d948a9b7119612c9df1ef64ff80d8c.setContent(html_d168ae8a016175c0ab5fdb1aa7578c7d);
+            
+        
+
+        circle_marker_bb8bfde9d2a64316eec4f741c4c0f1fe.bindPopup(popup_a5d948a9b7119612c9df1ef64ff80d8c)
+        ;
+
+        
+    
+    
+            var circle_marker_61af30b49c8021b4f40e4856db9f9711 = L.circleMarker(
+                [10.046546, -84.4355799],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_3b8fb2de003ce7bb29d8cda68ad08eec = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fe6a483d8ada468e09dc40b183778a1c = $(`<div id="html_fe6a483d8ada468e09dc40b183778a1c" style="width: 100.0%; height: 100.0%;">     <b>Palmares, Alajuela</b><br><br>     <b>Total licitaciones:</b> 243<br>     <b>Monto total adjudicado:</b> 2,563,960,695<br>     </div>`)[0];
+                popup_3b8fb2de003ce7bb29d8cda68ad08eec.setContent(html_fe6a483d8ada468e09dc40b183778a1c);
+            
+        
+
+        circle_marker_61af30b49c8021b4f40e4856db9f9711.bindPopup(popup_3b8fb2de003ce7bb29d8cda68ad08eec)
+        ;
+
+        
+    
+    
+            var circle_marker_8bd0ac29b32b199343188b5bcd50f5b6 = L.circleMarker(
+                [10.1061271, -84.2405137],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_30b3b4c51c1882d6c1773f8200f6fac6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_93d4beaf4cc115143f82aeeda12fb7db = $(`<div id="html_93d4beaf4cc115143f82aeeda12fb7db" style="width: 100.0%; height: 100.0%;">     <b>Poas, Alajuela</b><br><br>     <b>Total licitaciones:</b> 534<br>     <b>Monto total adjudicado:</b> 23,106,329,068<br>     </div>`)[0];
+                popup_30b3b4c51c1882d6c1773f8200f6fac6.setContent(html_93d4beaf4cc115143f82aeeda12fb7db);
+            
+        
+
+        circle_marker_8bd0ac29b32b199343188b5bcd50f5b6.bindPopup(popup_30b3b4c51c1882d6c1773f8200f6fac6)
+        ;
+
+        
+    
+    
+            var circle_marker_85c7bdd5bd76f45fbb867272cd36c4bd = L.circleMarker(
+                [10.3443612, -84.2154562],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_678123d8f1140486d35c7f45a29e8666 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_16327bd49d97169d9522553ad625587a = $(`<div id="html_16327bd49d97169d9522553ad625587a" style="width: 100.0%; height: 100.0%;">     <b>Rio Cuarto, Alajuela</b><br><br>     <b>Total licitaciones:</b> 88<br>     <b>Monto total adjudicado:</b> 24,483,597,195<br>     </div>`)[0];
+                popup_678123d8f1140486d35c7f45a29e8666.setContent(html_16327bd49d97169d9522553ad625587a);
+            
+        
+
+        circle_marker_85c7bdd5bd76f45fbb867272cd36c4bd.bindPopup(popup_678123d8f1140486d35c7f45a29e8666)
+        ;
+
+        
+    
+    
+            var circle_marker_1d816ac5ad56238b44cbc85ec5e0cdd2 = L.circleMarker(
+                [10.6203663, -84.425816],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_1591c63cae3a4a943423664758a2c320 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6e8006f2b007112d5a9137d568a22039 = $(`<div id="html_6e8006f2b007112d5a9137d568a22039" style="width: 100.0%; height: 100.0%;">     <b>San Carlos, Alajuela</b><br><br>     <b>Total licitaciones:</b> 772<br>     <b>Monto total adjudicado:</b> 30,166,656,245<br>     </div>`)[0];
+                popup_1591c63cae3a4a943423664758a2c320.setContent(html_6e8006f2b007112d5a9137d568a22039);
+            
+        
+
+        circle_marker_1d816ac5ad56238b44cbc85ec5e0cdd2.bindPopup(popup_1591c63cae3a4a943423664758a2c320)
+        ;
+
+        
+    
+    
+            var circle_marker_3cf1da61c77a094c940472f7a103ec4c = L.circleMarker(
+                [9.9605279, -84.5319038],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_fb2af8278a40cf9bc3109145afe08710 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d1b89d07d1cc358b07406d6936bd437c = $(`<div id="html_d1b89d07d1cc358b07406d6936bd437c" style="width: 100.0%; height: 100.0%;">     <b>San Mateo, Alajuela</b><br><br>     <b>Total licitaciones:</b> 23<br>     <b>Monto total adjudicado:</b> 6,895,113,408<br>     </div>`)[0];
+                popup_fb2af8278a40cf9bc3109145afe08710.setContent(html_d1b89d07d1cc358b07406d6936bd437c);
+            
+        
+
+        circle_marker_3cf1da61c77a094c940472f7a103ec4c.bindPopup(popup_fb2af8278a40cf9bc3109145afe08710)
+        ;
+
+        
+    
+    
+            var circle_marker_5be7578ea30dca66b2f5b7bfa99b5cff = L.circleMarker(
+                [10.2182194, -84.5714706],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_3dedfdeadc975b13f349be431a0cb579 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_12dfe6a509e4775a2ac908742e6faf81 = $(`<div id="html_12dfe6a509e4775a2ac908742e6faf81" style="width: 100.0%; height: 100.0%;">     <b>San Ramon, Alajuela</b><br><br>     <b>Total licitaciones:</b> 310<br>     <b>Monto total adjudicado:</b> 5,560,898,760<br>     </div>`)[0];
+                popup_3dedfdeadc975b13f349be431a0cb579.setContent(html_12dfe6a509e4775a2ac908742e6faf81);
+            
+        
+
+        circle_marker_5be7578ea30dca66b2f5b7bfa99b5cff.bindPopup(popup_3dedfdeadc975b13f349be431a0cb579)
+        ;
+
+        
+    
+    
+            var circle_marker_0a57e9fc51bf06a276ac664f5a85f62d = L.circleMarker(
+                [10.8681719, -85.1446055],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_9d6686bb4dc76cc563eca714362457a0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1d41d1ed2a9b0108c4349ca1663f5876 = $(`<div id="html_1d41d1ed2a9b0108c4349ca1663f5876" style="width: 100.0%; height: 100.0%;">     <b>Upala, Alajuela</b><br><br>     <b>Total licitaciones:</b> 136<br>     <b>Monto total adjudicado:</b> 19,005,951,039<br>     </div>`)[0];
+                popup_9d6686bb4dc76cc563eca714362457a0.setContent(html_1d41d1ed2a9b0108c4349ca1663f5876);
+            
+        
+
+        circle_marker_0a57e9fc51bf06a276ac664f5a85f62d.bindPopup(popup_9d6686bb4dc76cc563eca714362457a0)
+        ;
+
+        
+    
+    
+            var circle_marker_81f7c8768208620d7509780d2c1eee7c = L.circleMarker(
+                [10.1625862, -84.3151831],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_5cfaea89db962aad89971409960aa5ac = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_590f237a6c119c51baf30d5d9e037f09 = $(`<div id="html_590f237a6c119c51baf30d5d9e037f09" style="width: 100.0%; height: 100.0%;">     <b>Valverde Vega, Alajuela</b><br><br>     <b>Total licitaciones:</b> 271<br>     <b>Monto total adjudicado:</b> 2,838,903,591<br>     </div>`)[0];
+                popup_5cfaea89db962aad89971409960aa5ac.setContent(html_590f237a6c119c51baf30d5d9e037f09);
+            
+        
+
+        circle_marker_81f7c8768208620d7509780d2c1eee7c.bindPopup(popup_5cfaea89db962aad89971409960aa5ac)
+        ;
+
+        
+    
+    
+            var circle_marker_c45ce6c3e531c43e83717936d90757af = L.circleMarker(
+                [9.9441504, -83.8003171],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_255f135093ea747ed7257b9869e77936 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d82a562822e208c026bce7c1743fe154 = $(`<div id="html_d82a562822e208c026bce7c1743fe154" style="width: 100.0%; height: 100.0%;">     <b>Alvarado, Cartago</b><br><br>     <b>Total licitaciones:</b> 236<br>     <b>Monto total adjudicado:</b> 25,198,233,271<br>     </div>`)[0];
+                popup_255f135093ea747ed7257b9869e77936.setContent(html_d82a562822e208c026bce7c1743fe154);
+            
+        
+
+        circle_marker_c45ce6c3e531c43e83717936d90757af.bindPopup(popup_255f135093ea747ed7257b9869e77936)
+        ;
+
+        
+    
+    
+            var circle_marker_015ff8e07c44e11f900ed6588da20db5 = L.circleMarker(
+                [9.8643229, -83.9207112],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_04644497a5162b486a20604a65aa4869 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_711d3d0e662eca6ac05a8416e8ce8039 = $(`<div id="html_711d3d0e662eca6ac05a8416e8ce8039" style="width: 100.0%; height: 100.0%;">     <b>Cartago, Cartago</b><br><br>     <b>Total licitaciones:</b> 3149<br>     <b>Monto total adjudicado:</b> 1,446,666,602,434<br>     </div>`)[0];
+                popup_04644497a5162b486a20604a65aa4869.setContent(html_711d3d0e662eca6ac05a8416e8ce8039);
+            
+        
+
+        circle_marker_015ff8e07c44e11f900ed6588da20db5.bindPopup(popup_04644497a5162b486a20604a65aa4869)
+        ;
+
+        
+    
+    
+            var circle_marker_95b5e717249870a3fb1a80d4c56b25a9 = L.circleMarker(
+                [9.7313602, -83.9191215],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_28376b4244b634a691ee79bf31374f41 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_84f4988bb199654849b8b3cbc82a4513 = $(`<div id="html_84f4988bb199654849b8b3cbc82a4513" style="width: 100.0%; height: 100.0%;">     <b>El Guarco, Cartago</b><br><br>     <b>Total licitaciones:</b> 242<br>     <b>Monto total adjudicado:</b> 22,339,945,400<br>     </div>`)[0];
+                popup_28376b4244b634a691ee79bf31374f41.setContent(html_84f4988bb199654849b8b3cbc82a4513);
+            
+        
+
+        circle_marker_95b5e717249870a3fb1a80d4c56b25a9.bindPopup(popup_28376b4244b634a691ee79bf31374f41)
+        ;
+
+        
+    
+    
+            var circle_marker_71ca3f2813a5072fbc6ef54258a6c8f4 = L.circleMarker(
+                [9.8189809, -83.7114643],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_96703faf48561bdcec1f09d65dba6f35 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8d52de444a3b00239aab398063f0f466 = $(`<div id="html_8d52de444a3b00239aab398063f0f466" style="width: 100.0%; height: 100.0%;">     <b>Jimenez, Cartago</b><br><br>     <b>Total licitaciones:</b> 48<br>     <b>Monto total adjudicado:</b> 3,384,971,219<br>     </div>`)[0];
+                popup_96703faf48561bdcec1f09d65dba6f35.setContent(html_8d52de444a3b00239aab398063f0f466);
+            
+        
+
+        circle_marker_71ca3f2813a5072fbc6ef54258a6c8f4.bindPopup(popup_96703faf48561bdcec1f09d65dba6f35)
+        ;
+
+        
+    
+    
+            var circle_marker_5a2c08889a5ce8139272ed75e2b4c50c = L.circleMarker(
+                [9.9133715, -83.9837312],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_005938517cd06ad7a0cc60f434a47e8f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_44312f2a9e83bb23c8cca51abeaca4fe = $(`<div id="html_44312f2a9e83bb23c8cca51abeaca4fe" style="width: 100.0%; height: 100.0%;">     <b>La Union, Cartago</b><br><br>     <b>Total licitaciones:</b> 1546<br>     <b>Monto total adjudicado:</b> 125,268,554,048<br>     </div>`)[0];
+                popup_005938517cd06ad7a0cc60f434a47e8f.setContent(html_44312f2a9e83bb23c8cca51abeaca4fe);
+            
+        
+
+        circle_marker_5a2c08889a5ce8139272ed75e2b4c50c.bindPopup(popup_005938517cd06ad7a0cc60f434a47e8f)
+        ;
+
+        
+    
+    
+            var circle_marker_3e69d6871572cbd16fed0798f34438dc = L.circleMarker(
+                [9.9974149, -83.8459414],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_ac6ed30c334fe4b04f8f57dc703d4a89 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2f3671feaff4bb93b206747c739625c4 = $(`<div id="html_2f3671feaff4bb93b206747c739625c4" style="width: 100.0%; height: 100.0%;">     <b>Oreamuno, Cartago</b><br><br>     <b>Total licitaciones:</b> 101<br>     <b>Monto total adjudicado:</b> 8,007,046,565<br>     </div>`)[0];
+                popup_ac6ed30c334fe4b04f8f57dc703d4a89.setContent(html_2f3671feaff4bb93b206747c739625c4);
+            
+        
+
+        circle_marker_3e69d6871572cbd16fed0798f34438dc.bindPopup(popup_ac6ed30c334fe4b04f8f57dc703d4a89)
+        ;
+
+        
+    
+    
+            var circle_marker_d5b016429ab01328fd56a7b26722b3b9 = L.circleMarker(
+                [9.7843604, -83.4995932],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_9a1f4e3c4819d62aca2fa463d4e3041b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_50539a7fae5ad65a3bd01e9a2296ad28 = $(`<div id="html_50539a7fae5ad65a3bd01e9a2296ad28" style="width: 100.0%; height: 100.0%;">     <b>Turrialba, Cartago</b><br><br>     <b>Total licitaciones:</b> 685<br>     <b>Monto total adjudicado:</b> 23,652,909,646<br>     </div>`)[0];
+                popup_9a1f4e3c4819d62aca2fa463d4e3041b.setContent(html_50539a7fae5ad65a3bd01e9a2296ad28);
+            
+        
+
+        circle_marker_d5b016429ab01328fd56a7b26722b3b9.bindPopup(popup_9a1f4e3c4819d62aca2fa463d4e3041b)
+        ;
+
+        
+    
+    
+            var circle_marker_2b11ba7b4ed3e861b7ba20dcdff7cf40 = L.circleMarker(
+                [10.2493051, -85.020904],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_af51458e8b0a018405e1d15c0435dd71 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_eeac9656e1a20c7152e9696cff0ad0d6 = $(`<div id="html_eeac9656e1a20c7152e9696cff0ad0d6" style="width: 100.0%; height: 100.0%;">     <b>Abangares, Guanacaste</b><br><br>     <b>Total licitaciones:</b> 120<br>     <b>Monto total adjudicado:</b> 4,098,374,573<br>     </div>`)[0];
+                popup_af51458e8b0a018405e1d15c0435dd71.setContent(html_eeac9656e1a20c7152e9696cff0ad0d6);
+            
+        
+
+        circle_marker_2b11ba7b4ed3e861b7ba20dcdff7cf40.bindPopup(popup_af51458e8b0a018405e1d15c0435dd71)
+        ;
+
+        
+    
+    
+            var circle_marker_761188e6363f48b3fb081542d4ae1964 = L.circleMarker(
+                [10.5130939, -85.2844984],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_c65cabf81e9c9301b73319126c7518df = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0d1d2689aa7daff4b8fd262e4162681b = $(`<div id="html_0d1d2689aa7daff4b8fd262e4162681b" style="width: 100.0%; height: 100.0%;">     <b>Bagaces, Guanacaste</b><br><br>     <b>Total licitaciones:</b> 914<br>     <b>Monto total adjudicado:</b> 29,729,237,746<br>     </div>`)[0];
+                popup_c65cabf81e9c9301b73319126c7518df.setContent(html_0d1d2689aa7daff4b8fd262e4162681b);
+            
+        
+
+        circle_marker_761188e6363f48b3fb081542d4ae1964.bindPopup(popup_c65cabf81e9c9301b73319126c7518df)
+        ;
+
+        
+    
+    
+            var circle_marker_a99d8697fb3d077bf331a3ef383d237d = L.circleMarker(
+                [10.446361, -85.0934226],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_7de08e2b27075680619e5127f2528ee5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4af1680b06ba1907c17b0c4743727de8 = $(`<div id="html_4af1680b06ba1907c17b0c4743727de8" style="width: 100.0%; height: 100.0%;">     <b>Canas, Guanacaste</b><br><br>     <b>Total licitaciones:</b> 434<br>     <b>Monto total adjudicado:</b> 23,902,556,945<br>     </div>`)[0];
+                popup_7de08e2b27075680619e5127f2528ee5.setContent(html_4af1680b06ba1907c17b0c4743727de8);
+            
+        
+
+        circle_marker_a99d8697fb3d077bf331a3ef383d237d.bindPopup(popup_7de08e2b27075680619e5127f2528ee5)
+        ;
+
+        
+    
+    
+            var circle_marker_b709f3ac696ee60da89e711bf11fa4a3 = L.circleMarker(
+                [10.4819126, -85.6492969],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_43a5d64f7d827b5444004838bd97f968 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e1d0bad1fd522f43466f5f1cd47eb815 = $(`<div id="html_e1d0bad1fd522f43466f5f1cd47eb815" style="width: 100.0%; height: 100.0%;">     <b>Carrillo, Guanacaste</b><br><br>     <b>Total licitaciones:</b> 401<br>     <b>Monto total adjudicado:</b> 3,313,887,115<br>     </div>`)[0];
+                popup_43a5d64f7d827b5444004838bd97f968.setContent(html_e1d0bad1fd522f43466f5f1cd47eb815);
+            
+        
+
+        circle_marker_b709f3ac696ee60da89e711bf11fa4a3.bindPopup(popup_43a5d64f7d827b5444004838bd97f968)
+        ;
+
+        
+    
+    
+            var circle_marker_b6a9b4aee6f50d30a1ca18acc57d4f8f = L.circleMarker(
+                [9.9753794, -85.4113709],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_abd9c32aea41326b6e922ab56ece0126 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4056bf4f14e8ed721554b1a1197637b2 = $(`<div id="html_4056bf4f14e8ed721554b1a1197637b2" style="width: 100.0%; height: 100.0%;">     <b>Hojancha, Guanacaste</b><br><br>     <b>Total licitaciones:</b> 136<br>     <b>Monto total adjudicado:</b> 364,974,330<br>     </div>`)[0];
+                popup_abd9c32aea41326b6e922ab56ece0126.setContent(html_4056bf4f14e8ed721554b1a1197637b2);
+            
+        
+
+        circle_marker_b6a9b4aee6f50d30a1ca18acc57d4f8f.bindPopup(popup_abd9c32aea41326b6e922ab56ece0126)
+        ;
+
+        
+    
+    
+            var circle_marker_0c923ca8846026161c98bee950950227 = L.circleMarker(
+                [10.62967, -85.4382519],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_cc08cbb678ef928e9401a92a7205830b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cae43d5f0e4a13c9761ea08b1bd0dca0 = $(`<div id="html_cae43d5f0e4a13c9761ea08b1bd0dca0" style="width: 100.0%; height: 100.0%;">     <b>Liberia, Guanacaste</b><br><br>     <b>Total licitaciones:</b> 358<br>     <b>Monto total adjudicado:</b> 26,671,913,171<br>     </div>`)[0];
+                popup_cc08cbb678ef928e9401a92a7205830b.setContent(html_cae43d5f0e4a13c9761ea08b1bd0dca0);
+            
+        
+
+        circle_marker_0c923ca8846026161c98bee950950227.bindPopup(popup_cc08cbb678ef928e9401a92a7205830b)
+        ;
+
+        
+    
+    
+            var circle_marker_3d0f9d733e657628fd8e1bd167184577 = L.circleMarker(
+                [9.9013315, -85.3300334],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_0c5c4c828601ecd3f0bdcaa26c1f5bbf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b2bb5a21b389e31b031d8eb8cbe55cc4 = $(`<div id="html_b2bb5a21b389e31b031d8eb8cbe55cc4" style="width: 100.0%; height: 100.0%;">     <b>Nandayure, Guanacaste</b><br><br>     <b>Total licitaciones:</b> 390<br>     <b>Monto total adjudicado:</b> 47,398,155,255<br>     </div>`)[0];
+                popup_0c5c4c828601ecd3f0bdcaa26c1f5bbf.setContent(html_b2bb5a21b389e31b031d8eb8cbe55cc4);
+            
+        
+
+        circle_marker_3d0f9d733e657628fd8e1bd167184577.bindPopup(popup_0c5c4c828601ecd3f0bdcaa26c1f5bbf)
+        ;
+
+        
+    
+    
+            var circle_marker_60362791d6e1d9bc67021d8b45cc5a40 = L.circleMarker(
+                [10.103348, -85.4152942],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_33ed7ef721e060bbe7c3fad529086f4f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a6266bafc25b6e352505af8fc2595bcc = $(`<div id="html_a6266bafc25b6e352505af8fc2595bcc" style="width: 100.0%; height: 100.0%;">     <b>Nicoya, Guanacaste</b><br><br>     <b>Total licitaciones:</b> 210<br>     <b>Monto total adjudicado:</b> 34,384,177,901<br>     </div>`)[0];
+                popup_33ed7ef721e060bbe7c3fad529086f4f.setContent(html_a6266bafc25b6e352505af8fc2595bcc);
+            
+        
+
+        circle_marker_60362791d6e1d9bc67021d8b45cc5a40.bindPopup(popup_33ed7ef721e060bbe7c3fad529086f4f)
+        ;
+
+        
+    
+    
+            var circle_marker_2e18ae28b24ad6364bbdd1cc1d9a7a88 = L.circleMarker(
+                [10.2357588, -85.6699632],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_1079a01d10e504427d92b916d64900ff = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_59cc80813477494f6dc2214eddfca333 = $(`<div id="html_59cc80813477494f6dc2214eddfca333" style="width: 100.0%; height: 100.0%;">     <b>Santa Cruz, Guanacaste</b><br><br>     <b>Total licitaciones:</b> 670<br>     <b>Monto total adjudicado:</b> 4,684,708,778<br>     </div>`)[0];
+                popup_1079a01d10e504427d92b916d64900ff.setContent(html_59cc80813477494f6dc2214eddfca333);
+            
+        
+
+        circle_marker_2e18ae28b24ad6364bbdd1cc1d9a7a88.bindPopup(popup_1079a01d10e504427d92b916d64900ff)
+        ;
+
+        
+    
+    
+            var circle_marker_20825966bbcaba7b18d4d8f3e084a5a3 = L.circleMarker(
+                [10.4832237, -84.9008743],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_ed30ac5ea9b7facb7d488422144aa6a1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_76bd9b353b2f6611cb314d3d9c2d8a65 = $(`<div id="html_76bd9b353b2f6611cb314d3d9c2d8a65" style="width: 100.0%; height: 100.0%;">     <b>Tilaran, Guanacaste</b><br><br>     <b>Total licitaciones:</b> 194<br>     <b>Monto total adjudicado:</b> 9,488,372,995<br>     </div>`)[0];
+                popup_ed30ac5ea9b7facb7d488422144aa6a1.setContent(html_76bd9b353b2f6611cb314d3d9c2d8a65);
+            
+        
+
+        circle_marker_20825966bbcaba7b18d4d8f3e084a5a3.bindPopup(popup_ed30ac5ea9b7facb7d488422144aa6a1)
+        ;
+
+        
+    
+    
+            var circle_marker_a2923a6db045c3be3ea720e3973d59e7 = L.circleMarker(
+                [10.0731471, -84.1092019],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_fce0f0040bae94d9826bd9eeecd9542b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aa2e502e830c87d6798818d71cb261d5 = $(`<div id="html_aa2e502e830c87d6798818d71cb261d5" style="width: 100.0%; height: 100.0%;">     <b>Barva, Heredia</b><br><br>     <b>Total licitaciones:</b> 699<br>     <b>Monto total adjudicado:</b> 13,984,190,597<br>     </div>`)[0];
+                popup_fce0f0040bae94d9826bd9eeecd9542b.setContent(html_aa2e502e830c87d6798818d71cb261d5);
+            
+        
+
+        circle_marker_a2923a6db045c3be3ea720e3973d59e7.bindPopup(popup_fce0f0040bae94d9826bd9eeecd9542b)
+        ;
+
+        
+    
+    
+            var circle_marker_d563b5854c25192f2a8ac6e74f75854c = L.circleMarker(
+                [9.9793107, -84.1856026],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_b132c2fe35993f2d62cee1f1e860da01 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5d00cd5536937bf494cff2ac1377ca95 = $(`<div id="html_5d00cd5536937bf494cff2ac1377ca95" style="width: 100.0%; height: 100.0%;">     <b>Belen, Heredia</b><br><br>     <b>Total licitaciones:</b> 107<br>     <b>Monto total adjudicado:</b> 15,531,332,147<br>     </div>`)[0];
+                popup_b132c2fe35993f2d62cee1f1e860da01.setContent(html_5d00cd5536937bf494cff2ac1377ca95);
+            
+        
+
+        circle_marker_d563b5854c25192f2a8ac6e74f75854c.bindPopup(popup_b132c2fe35993f2d62cee1f1e860da01)
+        ;
+
+        
+    
+    
+            var circle_marker_b4d687781a788daa7669c3ef32fa1150 = L.circleMarker(
+                [10.0058342, -84.1587464],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_25e9c63f945417e30fb421f324831504 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_57bca9a7fd4ced0566430d094a8dd352 = $(`<div id="html_57bca9a7fd4ced0566430d094a8dd352" style="width: 100.0%; height: 100.0%;">     <b>Flores, Heredia</b><br><br>     <b>Total licitaciones:</b> 480<br>     <b>Monto total adjudicado:</b> 2,939,549,082<br>     </div>`)[0];
+                popup_25e9c63f945417e30fb421f324831504.setContent(html_57bca9a7fd4ced0566430d094a8dd352);
+            
+        
+
+        circle_marker_b4d687781a788daa7669c3ef32fa1150.bindPopup(popup_25e9c63f945417e30fb421f324831504)
+        ;
+
+        
+    
+    
+            var circle_marker_fb3a4e538d5a341cd2716d01fb8681e5 = L.circleMarker(
+                [9.9984272, -84.1171215],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_434bdcfca0398459962105bbd702adb5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_79ea270507d5dc11a8a58bdd56b0b46f = $(`<div id="html_79ea270507d5dc11a8a58bdd56b0b46f" style="width: 100.0%; height: 100.0%;">     <b>Heredia, Heredia</b><br><br>     <b>Total licitaciones:</b> 4419<br>     <b>Monto total adjudicado:</b> 3,106,878,318,566<br>     </div>`)[0];
+                popup_434bdcfca0398459962105bbd702adb5.setContent(html_79ea270507d5dc11a8a58bdd56b0b46f);
+            
+        
+
+        circle_marker_fb3a4e538d5a341cd2716d01fb8681e5.bindPopup(popup_434bdcfca0398459962105bbd702adb5)
+        ;
+
+        
+    
+    
+            var circle_marker_af167ac18b68d051b374fb10b0ec96fb = L.circleMarker(
+                [10.0297133, -84.0321109],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_5cb0147586fef5622c5a5b363f6bcae4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dc12e6495703f4cbd447246386810f35 = $(`<div id="html_dc12e6495703f4cbd447246386810f35" style="width: 100.0%; height: 100.0%;">     <b>San Isidro, Heredia</b><br><br>     <b>Total licitaciones:</b> 153<br>     <b>Monto total adjudicado:</b> 2,011,427,124<br>     </div>`)[0];
+                popup_5cb0147586fef5622c5a5b363f6bcae4.setContent(html_dc12e6495703f4cbd447246386810f35);
+            
+        
+
+        circle_marker_af167ac18b68d051b374fb10b0ec96fb.bindPopup(popup_5cb0147586fef5622c5a5b363f6bcae4)
+        ;
+
+        
+    
+    
+            var circle_marker_331edbdfcdc04dba8a00bec54cd1982f = L.circleMarker(
+                [9.9916771, -84.0994386],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_dbabc00078085191a42e3b390566bc1a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e6249ace6c042f7e1efd12ab894cf5d4 = $(`<div id="html_e6249ace6c042f7e1efd12ab894cf5d4" style="width: 100.0%; height: 100.0%;">     <b>San Pablo, Heredia</b><br><br>     <b>Total licitaciones:</b> 102<br>     <b>Monto total adjudicado:</b> 10,677,735,345<br>     </div>`)[0];
+                popup_dbabc00078085191a42e3b390566bc1a.setContent(html_e6249ace6c042f7e1efd12ab894cf5d4);
+            
+        
+
+        circle_marker_331edbdfcdc04dba8a00bec54cd1982f.bindPopup(popup_dbabc00078085191a42e3b390566bc1a)
+        ;
+
+        
+    
+    
+            var circle_marker_6ce633c24c942d87aa8220d50d9eea2f = L.circleMarker(
+                [10.0595124, -84.0713445],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_279981884ff901744e1157e88ae1d5a2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_81228f50d5e0a710b310c69206fc77e0 = $(`<div id="html_81228f50d5e0a710b310c69206fc77e0" style="width: 100.0%; height: 100.0%;">     <b>San Rafael, Heredia</b><br><br>     <b>Total licitaciones:</b> 614<br>     <b>Monto total adjudicado:</b> 18,261,878,635<br>     </div>`)[0];
+                popup_279981884ff901744e1157e88ae1d5a2.setContent(html_81228f50d5e0a710b310c69206fc77e0);
+            
+        
+
+        circle_marker_6ce633c24c942d87aa8220d50d9eea2f.bindPopup(popup_279981884ff901744e1157e88ae1d5a2)
+        ;
+
+        
+    
+    
+            var circle_marker_2f40b9b20bd65ef5d375cfc826d75b13 = L.circleMarker(
+                [9.987976, -84.0651348],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_17debfc4ccfbbc6a8a9a2152b9977ca6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0cd71e7f5318c12ccd797e3106c60e7b = $(`<div id="html_0cd71e7f5318c12ccd797e3106c60e7b" style="width: 100.0%; height: 100.0%;">     <b>Santo Domingo, Heredia</b><br><br>     <b>Total licitaciones:</b> 659<br>     <b>Monto total adjudicado:</b> 136,699,176,031<br>     </div>`)[0];
+                popup_17debfc4ccfbbc6a8a9a2152b9977ca6.setContent(html_0cd71e7f5318c12ccd797e3106c60e7b);
+            
+        
+
+        circle_marker_2f40b9b20bd65ef5d375cfc826d75b13.bindPopup(popup_17debfc4ccfbbc6a8a9a2152b9977ca6)
+        ;
+
+        
+    
+    
+            var circle_marker_3ab269eb7b5bea09b71100552eb8019b = L.circleMarker(
+                [10.4871636, -83.9956853],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_10862846d0baf4a09a3e512a898edca4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ad1026961300a5bcf0f20b656f7f4f01 = $(`<div id="html_ad1026961300a5bcf0f20b656f7f4f01" style="width: 100.0%; height: 100.0%;">     <b>Sarapiqui, Heredia</b><br><br>     <b>Total licitaciones:</b> 175<br>     <b>Monto total adjudicado:</b> 26,282,011,330<br>     </div>`)[0];
+                popup_10862846d0baf4a09a3e512a898edca4.setContent(html_ad1026961300a5bcf0f20b656f7f4f01);
+            
+        
+
+        circle_marker_3ab269eb7b5bea09b71100552eb8019b.bindPopup(popup_10862846d0baf4a09a3e512a898edca4)
+        ;
+
+        
+    
+    
+            var circle_marker_84e60fc00ee30ed3d78aabfc17eda819 = L.circleMarker(
+                [10.2216964, -83.6414199],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_f603d08f00407a49bf0fbb490e72b823 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_81c5b25a0974d6e501dd3fee810305dd = $(`<div id="html_81c5b25a0974d6e501dd3fee810305dd" style="width: 100.0%; height: 100.0%;">     <b>Guacimo, Limon</b><br><br>     <b>Total licitaciones:</b> 656<br>     <b>Monto total adjudicado:</b> 37,378,934,456<br>     </div>`)[0];
+                popup_f603d08f00407a49bf0fbb490e72b823.setContent(html_81c5b25a0974d6e501dd3fee810305dd);
+            
+        
+
+        circle_marker_84e60fc00ee30ed3d78aabfc17eda819.bindPopup(popup_f603d08f00407a49bf0fbb490e72b823)
+        ;
+
+        
+    
+    
+            var circle_marker_59e7428667391c7e046fcbddd4a94235 = L.circleMarker(
+                [9.9932401, -83.0297915],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_0fb9a5daee16eb09dab1bc6f7ecc1181 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5f4312b8b9f809c030f528cf2237c4bf = $(`<div id="html_5f4312b8b9f809c030f528cf2237c4bf" style="width: 100.0%; height: 100.0%;">     <b>Limon, Limon</b><br><br>     <b>Total licitaciones:</b> 672<br>     <b>Monto total adjudicado:</b> 269,818,253,353<br>     </div>`)[0];
+                popup_0fb9a5daee16eb09dab1bc6f7ecc1181.setContent(html_5f4312b8b9f809c030f528cf2237c4bf);
+            
+        
+
+        circle_marker_59e7428667391c7e046fcbddd4a94235.bindPopup(popup_0fb9a5daee16eb09dab1bc6f7ecc1181)
+        ;
+
+        
+    
+    
+            var circle_marker_edca72be437c1fb7d441c893de2d0e1c = L.circleMarker(
+                [10.5017988, -83.6557954],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_c5db7b2e5ffd0c4d6f49d4d128f11690 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0b006000f769c14af29443042f1d33e6 = $(`<div id="html_0b006000f769c14af29443042f1d33e6" style="width: 100.0%; height: 100.0%;">     <b>Pococi, Limon</b><br><br>     <b>Total licitaciones:</b> 1175<br>     <b>Monto total adjudicado:</b> 19,574,369,172<br>     </div>`)[0];
+                popup_c5db7b2e5ffd0c4d6f49d4d128f11690.setContent(html_0b006000f769c14af29443042f1d33e6);
+            
+        
+
+        circle_marker_edca72be437c1fb7d441c893de2d0e1c.bindPopup(popup_c5db7b2e5ffd0c4d6f49d4d128f11690)
+        ;
+
+        
+    
+    
+            var circle_marker_3e0527a8e0c70d68be7629daa892257f = L.circleMarker(
+                [10.1493599, -83.4815563],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_cd47d2caff423b806f8a8e5bae0dbfc8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_91c57c1730c4cab6507cff2c16c9d3bc = $(`<div id="html_91c57c1730c4cab6507cff2c16c9d3bc" style="width: 100.0%; height: 100.0%;">     <b>Siquirres, Limon</b><br><br>     <b>Total licitaciones:</b> 217<br>     <b>Monto total adjudicado:</b> 24,090,477,305<br>     </div>`)[0];
+                popup_cd47d2caff423b806f8a8e5bae0dbfc8.setContent(html_91c57c1730c4cab6507cff2c16c9d3bc);
+            
+        
+
+        circle_marker_3e0527a8e0c70d68be7629daa892257f.bindPopup(popup_cd47d2caff423b806f8a8e5bae0dbfc8)
+        ;
+
+        
+    
+    
+            var circle_marker_768a4253404960d7eaadc87d30cf7acf = L.circleMarker(
+                [9.4220665, -83.2082219],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_dd67ac5f1d994ae63879b047d295f648 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_84a92bf5a4d72f5a7db37af47c320697 = $(`<div id="html_84a92bf5a4d72f5a7db37af47c320697" style="width: 100.0%; height: 100.0%;">     <b>Talamanca, Limon</b><br><br>     <b>Total licitaciones:</b> 144<br>     <b>Monto total adjudicado:</b> 678,241,672<br>     </div>`)[0];
+                popup_dd67ac5f1d994ae63879b047d295f648.setContent(html_84a92bf5a4d72f5a7db37af47c320697);
+            
+        
+
+        circle_marker_768a4253404960d7eaadc87d30cf7acf.bindPopup(popup_dd67ac5f1d994ae63879b047d295f648)
+        ;
+
+        
+    
+    
+            var circle_marker_aed4d35d5e15ebf869195604314deeaf = L.circleMarker(
+                [9.4127862, -84.0649206],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_26bec18b96932f90131cb899d0e6a752 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_54885b5274b64a4828035e85e297605a = $(`<div id="html_54885b5274b64a4828035e85e297605a" style="width: 100.0%; height: 100.0%;">     <b>Aguirre, Puntarenas</b><br><br>     <b>Total licitaciones:</b> 383<br>     <b>Monto total adjudicado:</b> 9,230,648,057<br>     </div>`)[0];
+                popup_26bec18b96932f90131cb899d0e6a752.setContent(html_54885b5274b64a4828035e85e297605a);
+            
+        
+
+        circle_marker_aed4d35d5e15ebf869195604314deeaf.bindPopup(popup_26bec18b96932f90131cb899d0e6a752)
+        ;
+
+        
+    
+    
+            var circle_marker_95d33e849f53f5d4611c6a6d085a50c6 = L.circleMarker(
+                [9.0800192, -83.2292507],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_13914c2ace506724d8aaf9dfccc5cfac = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e68ac78ab9980f1aa1e5f448010c6fb1 = $(`<div id="html_e68ac78ab9980f1aa1e5f448010c6fb1" style="width: 100.0%; height: 100.0%;">     <b>Buenos Aires, Puntarenas</b><br><br>     <b>Total licitaciones:</b> 209<br>     <b>Monto total adjudicado:</b> 35,475,565,630<br>     </div>`)[0];
+                popup_13914c2ace506724d8aaf9dfccc5cfac.setContent(html_e68ac78ab9980f1aa1e5f448010c6fb1);
+            
+        
+
+        circle_marker_95d33e849f53f5d4611c6a6d085a50c6.bindPopup(popup_13914c2ace506724d8aaf9dfccc5cfac)
+        ;
+
+        
+    
+    
+            var circle_marker_d3cb63653d3c0c0ec6d949aefbb6587e = L.circleMarker(
+                [8.5378463, -82.9468472],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_e64a257849ada5e039032266f9d8964e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9a54095a6b194d5d8eb4c5f632a2e0af = $(`<div id="html_9a54095a6b194d5d8eb4c5f632a2e0af" style="width: 100.0%; height: 100.0%;">     <b>Corredores, Puntarenas</b><br><br>     <b>Total licitaciones:</b> 981<br>     <b>Monto total adjudicado:</b> 23,211,876,321<br>     </div>`)[0];
+                popup_e64a257849ada5e039032266f9d8964e.setContent(html_9a54095a6b194d5d8eb4c5f632a2e0af);
+            
+        
+
+        circle_marker_d3cb63653d3c0c0ec6d949aefbb6587e.bindPopup(popup_e64a257849ada5e039032266f9d8964e)
+        ;
+
+        
+    
+    
+            var circle_marker_1e141cf46d71e516e14c609a389651c3 = L.circleMarker(
+                [8.8899141, -82.9173305],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_6ceca894ecb00a8b4510195f765101ee = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_73186bafe365310ebe5cfc006e9b387a = $(`<div id="html_73186bafe365310ebe5cfc006e9b387a" style="width: 100.0%; height: 100.0%;">     <b>Coto Brus, Puntarenas</b><br><br>     <b>Total licitaciones:</b> 170<br>     <b>Monto total adjudicado:</b> 13,147,099,297<br>     </div>`)[0];
+                popup_6ceca894ecb00a8b4510195f765101ee.setContent(html_73186bafe365310ebe5cfc006e9b387a);
+            
+        
+
+        circle_marker_1e141cf46d71e516e14c609a389651c3.bindPopup(popup_6ceca894ecb00a8b4510195f765101ee)
+        ;
+
+        
+    
+    
+            var circle_marker_d6a3c6760551532f20b3acc44492f111 = L.circleMarker(
+                [9.9960449, -84.6255636],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_764a971fc639cd2e62960db4f091da45 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1ec9e49097fe5ea42f88103b53e9531f = $(`<div id="html_1ec9e49097fe5ea42f88103b53e9531f" style="width: 100.0%; height: 100.0%;">     <b>Esparza, Puntarenas</b><br><br>     <b>Total licitaciones:</b> 413<br>     <b>Monto total adjudicado:</b> 201,625,284,578<br>     </div>`)[0];
+                popup_764a971fc639cd2e62960db4f091da45.setContent(html_1ec9e49097fe5ea42f88103b53e9531f);
+            
+        
+
+        circle_marker_d6a3c6760551532f20b3acc44492f111.bindPopup(popup_764a971fc639cd2e62960db4f091da45)
+        ;
+
+        
+    
+    
+            var circle_marker_927f35b80d527f273b5b067f18eb65a3 = L.circleMarker(
+                [9.7072443, -84.6219804],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_dbaf1e2b5e4127bced162c8436dd58f4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_81fa181bedc78209e1f106b8e7886c1b = $(`<div id="html_81fa181bedc78209e1f106b8e7886c1b" style="width: 100.0%; height: 100.0%;">     <b>Garabito, Puntarenas</b><br><br>     <b>Total licitaciones:</b> 690<br>     <b>Monto total adjudicado:</b> 36,891,799,863<br>     </div>`)[0];
+                popup_dbaf1e2b5e4127bced162c8436dd58f4.setContent(html_81fa181bedc78209e1f106b8e7886c1b);
+            
+        
+
+        circle_marker_927f35b80d527f273b5b067f18eb65a3.bindPopup(popup_dbaf1e2b5e4127bced162c8436dd58f4)
+        ;
+
+        
+    
+    
+            var circle_marker_ba8485abac8fa243b6c2f0227e8011e0 = L.circleMarker(
+                [8.4275684, -83.0588096],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_ec926a94d5562336867135beb1d8e780 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ac1813d92ffe9fdb00de1276f16d7f32 = $(`<div id="html_ac1813d92ffe9fdb00de1276f16d7f32" style="width: 100.0%; height: 100.0%;">     <b>Golfito, Puntarenas</b><br><br>     <b>Total licitaciones:</b> 143<br>     <b>Monto total adjudicado:</b> 31,312,391,730<br>     </div>`)[0];
+                popup_ec926a94d5562336867135beb1d8e780.setContent(html_ac1813d92ffe9fdb00de1276f16d7f32);
+            
+        
+
+        circle_marker_ba8485abac8fa243b6c2f0227e8011e0.bindPopup(popup_ec926a94d5562336867135beb1d8e780)
+        ;
+
+        
+    
+    
+            var circle_marker_55dfdc201ed9afc5c8077be52072d5c2 = L.circleMarker(
+                [10.1464424, -84.727511],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_8f72c4f73f3ea335fbecba1151dd7f5b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8b216973928130e6f66ae9682198643b = $(`<div id="html_8b216973928130e6f66ae9682198643b" style="width: 100.0%; height: 100.0%;">     <b>Montes De Oro, Puntarenas</b><br><br>     <b>Total licitaciones:</b> 196<br>     <b>Monto total adjudicado:</b> 6,072,371,951<br>     </div>`)[0];
+                popup_8f72c4f73f3ea335fbecba1151dd7f5b.setContent(html_8b216973928130e6f66ae9682198643b);
+            
+        
+
+        circle_marker_55dfdc201ed9afc5c8077be52072d5c2.bindPopup(popup_8f72c4f73f3ea335fbecba1151dd7f5b)
+        ;
+
+        
+    
+    
+            var circle_marker_5a445fdef6bc2cf179e39fdfeb469102 = L.circleMarker(
+                [8.8914055, -83.407012],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_f0feac5c14ef3e64c0ecf5c209c4f357 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b6feca500b0d6b256e47228f6aad92d4 = $(`<div id="html_b6feca500b0d6b256e47228f6aad92d4" style="width: 100.0%; height: 100.0%;">     <b>Osa, Puntarenas</b><br><br>     <b>Total licitaciones:</b> 564<br>     <b>Monto total adjudicado:</b> 19,083,775,919<br>     </div>`)[0];
+                popup_f0feac5c14ef3e64c0ecf5c209c4f357.setContent(html_b6feca500b0d6b256e47228f6aad92d4);
+            
+        
+
+        circle_marker_5a445fdef6bc2cf179e39fdfeb469102.bindPopup(popup_f0feac5c14ef3e64c0ecf5c209c4f357)
+        ;
+
+        
+    
+    
+            var circle_marker_5c77b711c29b0bc0752dd7f30b3c61ee = L.circleMarker(
+                [9.547121, -84.366344],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_0545fb54eeca54382505ba113cf99e40 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b3c8793c9e26b69f75f43c783ea15763 = $(`<div id="html_b3c8793c9e26b69f75f43c783ea15763" style="width: 100.0%; height: 100.0%;">     <b>Parrita, Puntarenas</b><br><br>     <b>Total licitaciones:</b> 74<br>     <b>Monto total adjudicado:</b> 15,243,925,323<br>     </div>`)[0];
+                popup_0545fb54eeca54382505ba113cf99e40.setContent(html_b3c8793c9e26b69f75f43c783ea15763);
+            
+        
+
+        circle_marker_5c77b711c29b0bc0752dd7f30b3c61ee.bindPopup(popup_0545fb54eeca54382505ba113cf99e40)
+        ;
+
+        
+    
+    
+            var circle_marker_122bc15044c84b4711483fdd3ec5bdbd = L.circleMarker(
+                [9.9773343, -84.8346402],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_c44793065b4111a266613cf82b804eeb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e1bf3515113004efd2dad4160b366ad3 = $(`<div id="html_e1bf3515113004efd2dad4160b366ad3" style="width: 100.0%; height: 100.0%;">     <b>Puntarenas, Puntarenas</b><br><br>     <b>Total licitaciones:</b> 1158<br>     <b>Monto total adjudicado:</b> 83,145,502,198<br>     </div>`)[0];
+                popup_c44793065b4111a266613cf82b804eeb.setContent(html_e1bf3515113004efd2dad4160b366ad3);
+            
+        
+
+        circle_marker_122bc15044c84b4711483fdd3ec5bdbd.bindPopup(popup_c44793065b4111a266613cf82b804eeb)
+        ;
+
+        
+    
+    
+            var circle_marker_2b6037d224913ca2f38a9e82086b72ab = L.circleMarker(
+                [9.7426136, -84.2431743],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_27bdf62f7d76ffd339309fb73a4695db = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3ac3b3ba5a839906e49feb836c8016c5 = $(`<div id="html_3ac3b3ba5a839906e49feb836c8016c5" style="width: 100.0%; height: 100.0%;">     <b>Acosta, San Jose</b><br><br>     <b>Total licitaciones:</b> 66<br>     <b>Monto total adjudicado:</b> 1,147,682,855<br>     </div>`)[0];
+                popup_27bdf62f7d76ffd339309fb73a4695db.setContent(html_3ac3b3ba5a839906e49feb836c8016c5);
+            
+        
+
+        circle_marker_2b6037d224913ca2f38a9e82086b72ab.bindPopup(popup_27bdf62f7d76ffd339309fb73a4695db)
+        ;
+
+        
+    
+    
+            var circle_marker_b5579b8c9cb58c72e003e331f9cf7ebe = L.circleMarker(
+                [9.8889856, -84.1060036],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_bfc17473a1994ea67c61c1632eaeb041 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1b2f206800cb0c4173f7f6b23a8e19e6 = $(`<div id="html_1b2f206800cb0c4173f7f6b23a8e19e6" style="width: 100.0%; height: 100.0%;">     <b>Alajuelita, San Jose</b><br><br>     <b>Total licitaciones:</b> 172<br>     <b>Monto total adjudicado:</b> 401,131,157<br>     </div>`)[0];
+                popup_bfc17473a1994ea67c61c1632eaeb041.setContent(html_1b2f206800cb0c4173f7f6b23a8e19e6);
+            
+        
+
+        circle_marker_b5579b8c9cb58c72e003e331f9cf7ebe.bindPopup(popup_bfc17473a1994ea67c61c1632eaeb041)
+        ;
+
+        
+    
+    
+            var circle_marker_eaa09e4a8da643886cb699c681ec2e3b = L.circleMarker(
+                [9.7467827, -84.1231454],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_3d0f7e5c0642ba5807d89cfacf2cce12 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8cfbcad566d687f1247a70dc0fc3de78 = $(`<div id="html_8cfbcad566d687f1247a70dc0fc3de78" style="width: 100.0%; height: 100.0%;">     <b>Aserri, San Jose</b><br><br>     <b>Total licitaciones:</b> 95<br>     <b>Monto total adjudicado:</b> 10,651,297,135<br>     </div>`)[0];
+                popup_3d0f7e5c0642ba5807d89cfacf2cce12.setContent(html_8cfbcad566d687f1247a70dc0fc3de78);
+            
+        
+
+        circle_marker_eaa09e4a8da643886cb699c681ec2e3b.bindPopup(popup_3d0f7e5c0642ba5807d89cfacf2cce12)
+        ;
+
+        
+    
+    
+            var circle_marker_00790b44b38f0c96bba42df831a2676a = L.circleMarker(
+                [9.9161655, -84.0308421],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_e9570cbc0bb6907c0eb0de3bb602057b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_213676a0aaa580025caf45e620c02cfb = $(`<div id="html_213676a0aaa580025caf45e620c02cfb" style="width: 100.0%; height: 100.0%;">     <b>Curridabat, San Jose</b><br><br>     <b>Total licitaciones:</b> 776<br>     <b>Monto total adjudicado:</b> 245,505,733,338<br>     </div>`)[0];
+                popup_e9570cbc0bb6907c0eb0de3bb602057b.setContent(html_213676a0aaa580025caf45e620c02cfb);
+            
+        
+
+        circle_marker_00790b44b38f0c96bba42df831a2676a.bindPopup(popup_e9570cbc0bb6907c0eb0de3bb602057b)
+        ;
+
+        
+    
+    
+            var circle_marker_672397f32c7010e856816ad7959465e8 = L.circleMarker(
+                [9.8112357, -84.0699087],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_da172091755cd8eeffb081799494a116 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_66c759529016ad054debe552aff2059d = $(`<div id="html_66c759529016ad054debe552aff2059d" style="width: 100.0%; height: 100.0%;">     <b>Desamparados, San Jose</b><br><br>     <b>Total licitaciones:</b> 347<br>     <b>Monto total adjudicado:</b> 13,592,407,288<br>     </div>`)[0];
+                popup_da172091755cd8eeffb081799494a116.setContent(html_66c759529016ad054debe552aff2059d);
+            
+        
+
+        circle_marker_672397f32c7010e856816ad7959465e8.bindPopup(popup_da172091755cd8eeffb081799494a116)
+        ;
+
+        
+    
+    
+            var circle_marker_de49cf38f32ee4261d191ef9b340c83a = L.circleMarker(
+                [9.5847815, -83.8904679],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_f13d6bf2fd9b8dd8cc7567d2dd3fe44e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f663ea81dde74f74609076b9ef6ff675 = $(`<div id="html_f663ea81dde74f74609076b9ef6ff675" style="width: 100.0%; height: 100.0%;">     <b>Dota, San Jose</b><br><br>     <b>Total licitaciones:</b> 198<br>     <b>Monto total adjudicado:</b> 103,668,854,706<br>     </div>`)[0];
+                popup_f13d6bf2fd9b8dd8cc7567d2dd3fe44e.setContent(html_f663ea81dde74f74609076b9ef6ff675);
+            
+        
+
+        circle_marker_de49cf38f32ee4261d191ef9b340c83a.bindPopup(popup_f13d6bf2fd9b8dd8cc7567d2dd3fe44e)
+        ;
+
+        
+    
+    
+            var circle_marker_443c90e60528537cd0161614c1df8102 = L.circleMarker(
+                [9.9160325, -84.1409844],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_db84bb6e1b63f7165fdc30c6979a6088 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_96c492de8b0449d4ff10a6726635c755 = $(`<div id="html_96c492de8b0449d4ff10a6726635c755" style="width: 100.0%; height: 100.0%;">     <b>Escazu, San Jose</b><br><br>     <b>Total licitaciones:</b> 862<br>     <b>Monto total adjudicado:</b> 267,246,000,134<br>     </div>`)[0];
+                popup_db84bb6e1b63f7165fdc30c6979a6088.setContent(html_96c492de8b0449d4ff10a6726635c755);
+            
+        
+
+        circle_marker_443c90e60528537cd0161614c1df8102.bindPopup(popup_db84bb6e1b63f7165fdc30c6979a6088)
+        ;
+
+        
+    
+    
+            var circle_marker_4a9dc2e5a440140d41d281d1b60fe6c5 = L.circleMarker(
+                [9.9564518, -83.966817],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_88fff01a1e4cf4e23f2b4c4fffae2b35 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a1e56616f31d3ea7cbcc054e565404ba = $(`<div id="html_a1e56616f31d3ea7cbcc054e565404ba" style="width: 100.0%; height: 100.0%;">     <b>Goicoechea, San Jose</b><br><br>     <b>Total licitaciones:</b> 1812<br>     <b>Monto total adjudicado:</b> 1,629,048,234,482<br>     </div>`)[0];
+                popup_88fff01a1e4cf4e23f2b4c4fffae2b35.setContent(html_a1e56616f31d3ea7cbcc054e565404ba);
+            
+        
+
+        circle_marker_4a9dc2e5a440140d41d281d1b60fe6c5.bindPopup(popup_88fff01a1e4cf4e23f2b4c4fffae2b35)
+        ;
+
+        
+    
+    
+            var circle_marker_9e7f22d44e8680773400afa1c0222f31 = L.circleMarker(
+                [9.6830817, -84.0410705],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_da60d43f86a39c63b222216b206542d0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_49beff43b40ab43a8de9fe274eb60087 = $(`<div id="html_49beff43b40ab43a8de9fe274eb60087" style="width: 100.0%; height: 100.0%;">     <b>Leon Cortes, San Jose</b><br><br>     <b>Total licitaciones:</b> 106<br>     <b>Monto total adjudicado:</b> 13,312,350,783<br>     </div>`)[0];
+                popup_da60d43f86a39c63b222216b206542d0.setContent(html_49beff43b40ab43a8de9fe274eb60087);
+            
+        
+
+        circle_marker_9e7f22d44e8680773400afa1c0222f31.bindPopup(popup_da60d43f86a39c63b222216b206542d0)
+        ;
+
+        
+    
+    
+            var circle_marker_3956a6295a7eccf009cc6044a41dd6a2 = L.circleMarker(
+                [9.94003, -84.032717],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_7ca3adeda23e7e25303f296afb341bd9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8cf29c3d1ea40d504817b3cf4d03af1e = $(`<div id="html_8cf29c3d1ea40d504817b3cf4d03af1e" style="width: 100.0%; height: 100.0%;">     <b>Montes De Oca, San Jose</b><br><br>     <b>Total licitaciones:</b> 7569<br>     <b>Monto total adjudicado:</b> 4,354,188,439,715<br>     </div>`)[0];
+                popup_7ca3adeda23e7e25303f296afb341bd9.setContent(html_8cf29c3d1ea40d504817b3cf4d03af1e);
+            
+        
+
+        circle_marker_3956a6295a7eccf009cc6044a41dd6a2.bindPopup(popup_7ca3adeda23e7e25303f296afb341bd9)
+        ;
+
+        
+    
+    
+            var circle_marker_1a1dbced0051d2bd26a0e80ebb13a1f9 = L.circleMarker(
+                [10.0076988, -84.0129504],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_e00a9fe11838b54466c49f62aa24d57c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e0bcc30673905f04f5893c09c77b569e = $(`<div id="html_e0bcc30673905f04f5893c09c77b569e" style="width: 100.0%; height: 100.0%;">     <b>Moravia, San Jose</b><br><br>     <b>Total licitaciones:</b> 1418<br>     <b>Monto total adjudicado:</b> 528,663,890,139<br>     </div>`)[0];
+                popup_e00a9fe11838b54466c49f62aa24d57c.setContent(html_e0bcc30673905f04f5893c09c77b569e);
+            
+        
+
+        circle_marker_1a1dbced0051d2bd26a0e80ebb13a1f9.bindPopup(popup_e00a9fe11838b54466c49f62aa24d57c)
+        ;
+
+        
+    
+    
+            var circle_marker_fa436739bf2f231a60e45e1bece34aaa = L.circleMarker(
+                [9.3364652, -83.6484115],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_3c3b721fa9d8d0795922a6cdb5190f83 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_68bd8b36b0413d2085aa646c8e8bd125 = $(`<div id="html_68bd8b36b0413d2085aa646c8e8bd125" style="width: 100.0%; height: 100.0%;">     <b>Perez Zeledon, San Jose</b><br><br>     <b>Total licitaciones:</b> 501<br>     <b>Monto total adjudicado:</b> 14,322,170,957<br>     </div>`)[0];
+                popup_3c3b721fa9d8d0795922a6cdb5190f83.setContent(html_68bd8b36b0413d2085aa646c8e8bd125);
+            
+        
+
+        circle_marker_fa436739bf2f231a60e45e1bece34aaa.bindPopup(popup_3c3b721fa9d8d0795922a6cdb5190f83)
+        ;
+
+        
+    
+    
+            var circle_marker_7a070849bcd2463abd7e070023f42c0c = L.circleMarker(
+                [9.7333656, -84.4094351],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_7fd7772b3e44fd1f9f7530deb88f8867 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9f400a2b61f194940ab1431349683cad = $(`<div id="html_9f400a2b61f194940ab1431349683cad" style="width: 100.0%; height: 100.0%;">     <b>Puriscal, San Jose</b><br><br>     <b>Total licitaciones:</b> 193<br>     <b>Monto total adjudicado:</b> 8,569,304,089<br>     </div>`)[0];
+                popup_7fd7772b3e44fd1f9f7530deb88f8867.setContent(html_9f400a2b61f194940ab1431349683cad);
+            
+        
+
+        circle_marker_7a070849bcd2463abd7e070023f42c0c.bindPopup(popup_7fd7772b3e44fd1f9f7530deb88f8867)
+        ;
+
+        
+    
+    
+            var circle_marker_ed0b4fa7f7f5bb548744006edb2005c0 = L.circleMarker(
+                [9.9327707, -84.0796144],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_2a6088e6bd8e25b1c7f1113c9d21cb75 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1d9640481cbeba8db3b85669ab0bfeec = $(`<div id="html_1d9640481cbeba8db3b85669ab0bfeec" style="width: 100.0%; height: 100.0%;">     <b>San Jose, San Jose</b><br><br>     <b>Total licitaciones:</b> 40020<br>     <b>Monto total adjudicado:</b> 24,112,267,060,169<br>     </div>`)[0];
+                popup_2a6088e6bd8e25b1c7f1113c9d21cb75.setContent(html_1d9640481cbeba8db3b85669ab0bfeec);
+            
+        
+
+        circle_marker_ed0b4fa7f7f5bb548744006edb2005c0.bindPopup(popup_2a6088e6bd8e25b1c7f1113c9d21cb75)
+        ;
+
+        
+    
+    
+            var circle_marker_bd8c4c169f11c6009ec319b15b0ed677 = L.circleMarker(
+                [9.918215, -84.1916102],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_b328695cf65fdd248f83601553214e92 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_efed4949b1b60c98104e846b391b6c84 = $(`<div id="html_efed4949b1b60c98104e846b391b6c84" style="width: 100.0%; height: 100.0%;">     <b>Santa Ana, San Jose</b><br><br>     <b>Total licitaciones:</b> 813<br>     <b>Monto total adjudicado:</b> 97,386,849,678<br>     </div>`)[0];
+                popup_b328695cf65fdd248f83601553214e92.setContent(html_efed4949b1b60c98104e846b391b6c84);
+            
+        
+
+        circle_marker_bd8c4c169f11c6009ec319b15b0ed677.bindPopup(popup_b328695cf65fdd248f83601553214e92)
+        ;
+
+        
+    
+    
+            var circle_marker_fbaee74558f303908733171b125363e0 = L.circleMarker(
+                [9.5828031, -84.0659187],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_af4f7008c14660eaecbf38fe930830ea = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8c6389bc0e1b96b1671c8d1fe2df90c9 = $(`<div id="html_8c6389bc0e1b96b1671c8d1fe2df90c9" style="width: 100.0%; height: 100.0%;">     <b>Tarrazu, San Jose</b><br><br>     <b>Total licitaciones:</b> 90<br>     <b>Monto total adjudicado:</b> 24,789,027,681<br>     </div>`)[0];
+                popup_af4f7008c14660eaecbf38fe930830ea.setContent(html_8c6389bc0e1b96b1671c8d1fe2df90c9);
+            
+        
+
+        circle_marker_fbaee74558f303908733171b125363e0.bindPopup(popup_af4f7008c14660eaecbf38fe930830ea)
+        ;
+
+        
+    
+    
+            var circle_marker_ac503735881aa8b3f46ebaf46dd9c848 = L.circleMarker(
+                [9.9571394, -84.0821627],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_4431419365471ebd51e5e1e0236b98fd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c8dcc96345cd612411dc431792e4a607 = $(`<div id="html_c8dcc96345cd612411dc431792e4a607" style="width: 100.0%; height: 100.0%;">     <b>Tibas, San Jose</b><br><br>     <b>Total licitaciones:</b> 316<br>     <b>Monto total adjudicado:</b> 76,679,354,791<br>     </div>`)[0];
+                popup_4431419365471ebd51e5e1e0236b98fd.setContent(html_c8dcc96345cd612411dc431792e4a607);
+            
+        
+
+        circle_marker_ac503735881aa8b3f46ebaf46dd9c848.bindPopup(popup_4431419365471ebd51e5e1e0236b98fd)
+        ;
+
+        
+    
+    
+            var circle_marker_42c889af53fdd6d3a2c02854c552abd5 = L.circleMarker(
+                [9.7475327, -84.5282903],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_7514769c6c60d693d899e6b89508fe3b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b391174355d2ee82da3ced3ba61fed5f = $(`<div id="html_b391174355d2ee82da3ced3ba61fed5f" style="width: 100.0%; height: 100.0%;">     <b>Turrubares, San Jose</b><br><br>     <b>Total licitaciones:</b> 34<br>     <b>Monto total adjudicado:</b> 11,379,071,154<br>     </div>`)[0];
+                popup_7514769c6c60d693d899e6b89508fe3b.setContent(html_b391174355d2ee82da3ced3ba61fed5f);
+            
+        
+
+        circle_marker_42c889af53fdd6d3a2c02854c552abd5.bindPopup(popup_7514769c6c60d693d899e6b89508fe3b)
+        ;
+
+        
+    
+    
+            var circle_marker_37ff06a2762732ddf37841b845a16931 = L.circleMarker(
+                [10.0760874, -83.9758869],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9, "stroke": true, "weight": 3}
+            ).addTo(map_85008279a929712ac42c91eede2973a0);
+        
+    
+        var popup_3c9479ee34b0d6cab8cbdb517eb673b0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dc859ff6ec9cfc26eb0765b212e2d10d = $(`<div id="html_dc859ff6ec9cfc26eb0765b212e2d10d" style="width: 100.0%; height: 100.0%;">     <b>Vazquez De Coronado, San Jose</b><br><br>     <b>Total licitaciones:</b> 263<br>     <b>Monto total adjudicado:</b> 94,349,096,212<br>     </div>`)[0];
+                popup_3c9479ee34b0d6cab8cbdb517eb673b0.setContent(html_dc859ff6ec9cfc26eb0765b212e2d10d);
+            
+        
+
+        circle_marker_37ff06a2762732ddf37841b845a16931.bindPopup(popup_3c9479ee34b0d6cab8cbdb517eb673b0)
+        ;
+
+        
+    
+    
+            var heat_map_40d89f549e249de0b078dfcc1e6cf7ad = L.heatLayer(
+                [[10.2735633, -84.0739102, 12328780700.0], [10.0165053, -84.2138674, 572014782196.0], [10.21888, -84.4174738, 4061285171.0], [9.9794934, -84.3990263, 1416892059.0], [10.0905786, -84.2993913, 59250500452.0], [10.7035522, -84.8407651, 15912942089.0], [10.8570354, -84.7150178, 1080701024.0], [10.1054677, -84.3994858, 2041006070.0], [9.8932724, -84.5945818, 11786146859.0], [10.046546, -84.4355799, 2563960695.0], [10.1061271, -84.2405137, 23106329068.0], [10.3443612, -84.2154562, 24483597195.0], [10.6203663, -84.425816, 30166656245.0], [9.9605279, -84.5319038, 6895113408.0], [10.2182194, -84.5714706, 5560898760.0], [10.8681719, -85.1446055, 19005951039.0], [10.1625862, -84.3151831, 2838903591.0], [9.9441504, -83.8003171, 25198233271.0], [9.8643229, -83.9207112, 1446666602434.0], [9.7313602, -83.9191215, 22339945400.0], [9.8189809, -83.7114643, 3384971219.0], [9.9133715, -83.9837312, 125268554048.0], [9.9974149, -83.8459414, 8007046565.0], [9.7843604, -83.4995932, 23652909646.0], [10.2493051, -85.020904, 4098374573.0], [10.5130939, -85.2844984, 29729237746.0], [10.446361, -85.0934226, 23902556945.0], [10.4819126, -85.6492969, 3313887115.0], [9.9753794, -85.4113709, 364974330.0], [10.62967, -85.4382519, 26671913171.0], [9.9013315, -85.3300334, 47398155255.0], [10.103348, -85.4152942, 34384177901.0], [10.2357588, -85.6699632, 4684708778.0], [10.4832237, -84.9008743, 9488372995.0], [10.0731471, -84.1092019, 13984190597.0], [9.9793107, -84.1856026, 15531332147.0], [10.0058342, -84.1587464, 2939549082.0], [9.9984272, -84.1171215, 3106878318566.0], [10.0297133, -84.0321109, 2011427124.0], [9.9916771, -84.0994386, 10677735345.0], [10.0595124, -84.0713445, 18261878635.0], [9.987976, -84.0651348, 136699176031.0], [10.4871636, -83.9956853, 26282011330.0], [10.2216964, -83.6414199, 37378934456.0], [9.9932401, -83.0297915, 269818253353.0], [10.5017988, -83.6557954, 19574369172.0], [10.1493599, -83.4815563, 24090477305.0], [9.4220665, -83.2082219, 678241672.0], [9.4127862, -84.0649206, 9230648057.0], [9.0800192, -83.2292507, 35475565630.0], [8.5378463, -82.9468472, 23211876321.0], [8.8899141, -82.9173305, 13147099297.0], [9.9960449, -84.6255636, 201625284578.0], [9.7072443, -84.6219804, 36891799863.0], [8.4275684, -83.0588096, 31312391730.0], [10.1464424, -84.727511, 6072371951.0], [8.8914055, -83.407012, 19083775919.0], [9.547121, -84.366344, 15243925323.0], [9.9773343, -84.8346402, 83145502198.0], [9.7426136, -84.2431743, 1147682855.0], [9.8889856, -84.1060036, 401131157.0], [9.7467827, -84.1231454, 10651297135.0], [9.9161655, -84.0308421, 245505733338.0], [9.8112357, -84.0699087, 13592407288.0], [9.5847815, -83.8904679, 103668854706.0], [9.9160325, -84.1409844, 267246000134.0], [9.9564518, -83.966817, 1629048234482.0], [9.6830817, -84.0410705, 13312350783.0], [9.94003, -84.032717, 4354188439715.0], [10.0076988, -84.0129504, 528663890139.0], [9.3364652, -83.6484115, 14322170957.0], [9.7333656, -84.4094351, 8569304089.0], [9.9327707, -84.0796144, 24112267060169.0], [9.918215, -84.1916102, 97386849678.0], [9.5828031, -84.0659187, 24789027681.0], [9.9571394, -84.0821627, 76679354791.0], [9.7475327, -84.5282903, 11379071154.0], [10.0760874, -83.9758869, 94349096212.0]],
+                {
+  "minOpacity": 0.5,
+  "maxZoom": 18,
+  "radius": 25,
+  "blur": 15,
+}
+            );
+        
+    
+            heat_map_40d89f549e249de0b078dfcc1e6cf7ad.addTo(map_85008279a929712ac42c91eede2973a0);
+        
+</script>
+</html>
