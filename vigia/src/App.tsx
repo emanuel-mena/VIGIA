@@ -165,17 +165,24 @@ export default function App() {
               </p>
 
               <div className="mt-10 grid w-full max-w-3xl gap-6 sm:grid-cols-2">
-                <GlassCard>
-                  <h3 className="text-lg font-semibold">Dolor actual</h3>
-                  <p className="mt-2 text-zinc-300">
-                    Enumera 2–3 puntos clave del problema: ineficiencias, costos, tiempos, riesgos o brechas de accesibilidad.
-                  </p>
+                <GlassCard className="glass-card">
+                  <div className="glasscard-text">
+                    <h3 className="text-lg font-semibold">Dolor actual</h3>
+                    <ul className="mt-2 text-zinc-300 list-disc list-inside space-y-1">
+                      <li>Los datos abiertos del gobierno son poco accesibles y difíciles de interpretar.</li>
+                      <li>No existen herramientas claras para detectar posibles irregularidades en las contrataciones públicas.</li>
+                      <li>La ciudadanía tiene limitada participación en la supervisión del gasto público.</li>
+                    </ul>
+                  </div>
                 </GlassCard>
-                <GlassCard>
-                  <h3 className="text-lg font-semibold">Objetivo</h3>
-                  <p className="mt-2 text-zinc-300">
-                    Define el resultado deseado y los indicadores de éxito (KPIs) que demostrarán el impacto de la solución.
-                  </p>
+
+                <GlassCard className="glass-card">
+                  <div className="glasscard-text">
+                    <h3 className="text-lg font-semibold">Objetivo</h3>
+                    <p className="mt-2 text-zinc-300">
+                      Crear una aplicación web que analice y visualice los datos abiertos de Costa Rica para facilitar la detección de anomalías en contrataciones y promover la transparencia gubernamental.
+                    </p>
+                  </div>
                 </GlassCard>
               </div>
             </div>
